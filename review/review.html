@@ -26,144 +26,95 @@
                 style="background: linear-gradient(to left, #edf2f7 0%, rgba(255, 255, 255, 0) 100%);"></div>
         </div>
 
-        <div class="carousel-items flex items-center justify-center"
+        <div id="reviewsContainer" class="carousel-items flex items-center justify-center"
             style="width: fit-content; animation: carouselAnim 10s infinite alternate linear;">
 
-            <div class="carousel-focus flex items-center flex-col relative bg-white mx-5 my-10 px-4 py-3 rounded-lg shadow-lg"
-                style="width: 270px;">
-                <svg class="fill-current text-teal-400 hover:text-teal-500 cursor-pointer h-12 w-12 absolute top-0 right-0 mt-2 -mr-5"
-                    xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
-                    <path
-                        d="M11.5 0C17.847 0 23 5.153 23 11.5S17.847 23 11.5 23 0 17.847 0 11.5 5.153 0 11.5 0zm0 1C17.295 1 22 5.705 22 11.5S17.295 22 11.5 22 1 17.295 1 11.5 5.705 1 11.5 1zm.5 10h6v1h-6v6h-1v-6H5v-1h6V5h1v6z" />
-                </svg>
-                <!-- <button class="absolute top-0 right-0 bg-teal-400 rounded-full px-1 py-0 font-bold text-lg">+</button> -->
-                <span class="text-teal-400 font-bold text-xl mb-3">Sup3r-Us3r</span>
-                <img class="h-16 w-16 rounded-full shadow-2xl"
-                    src="https://pbs.twimg.com/profile_images/830533062807191552/TbkWKnnv_400x400.jpg" alt="Img">
-                <p class="mt-3 text-gray-600 text-center">"Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Quod, quibusdam!"</p>
-                <button
-                    class="mt-4 mb-2 bg-teal-400 rounded-full px-12 py-1 text-gray-100 font-semibold hover:bg-teal-300 focus:outline-none">Button</button>
-            </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const reviews = [
+                        {
+                            name: "John Doe",
+                            profession: "Freelancer",
+                            avatar: "avatar",
+                            content: "This invoice maker app is fantastic! It's really easy to use and has all the features I need."
+                        },
+                        {
+                            name: "Jane Smith",
+                            profession: "Small Business Owner",
+                            avatar: "avatar",
+                            content: "I've tried several invoice apps before, but this one is by far the best. Simple yet powerful."
+                        },
+                        {
+                            name: "Michael Johnson",
+                            profession: "Entrepreneur",
+                            avatar: "avatar",
+                            content: "As a freelancer, I rely on this app to send invoices to my clients. It saves me so much time!"
+                        },
+                        {
+                            name: "Emily Wilson",
+                            profession: "Consultant",
+                            avatar: "avatar",
+                            content: "The interface is intuitive and user-friendly. I can create professional invoices in minutes."
+                        },
+                        {
+                            name: "David Brown",
+                            profession: "Accountant",
+                            avatar: "avatar",
+                            content: "EZInvoice has made my invoicing process much smoother. Highly recommended for small businesses."
+                        },
+                        {
+                            name: "Jessica Lee",
+                            profession: "Designer",
+                            avatar: "avatar",
+                            content: "I love the customization options available in EZInvoice. It allows me to brand my invoices effectively."
+                        },
+                        {
+                            name: "Mark Taylor",
+                            profession: "Developer",
+                            avatar: "avatar",
+                            content: "This app has simplified my billing process. It's reliable and efficient."
+                        },
+                        {
+                            name: "Sarah Garcia",
+                            profession: "Manager",
+                            avatar: "avatar",
+                            content: "EZInvoice integrates seamlessly with other tools I use for my business. It's a game-changer."
+                        },
+                        {
+                            name: "Daniel Martinez",
+                            profession: "Business Analyst",
+                            avatar: "avatar",
+                            content: "The reporting feature in EZInvoice provides valuable insights into my finances. Great for analyzing cash flow."
+                        },
+                        {
+                            name: "Rachel Clark",
+                            profession: "Writer",
+                            avatar: "avatar",
+                            content: "I've been using EZInvoice for months now, and it's been a lifesaver. No more late nights sorting through invoices."
+                        }
+                    ];
 
-            <div class="carousel-focus flex items-center flex-col relative bg-white mx-5 my-10 px-4 py-3 rounded-lg shadow-lg"
-                style="width: 270px;">
-                <svg class="fill-current text-teal-400 hover:text-teal-500 cursor-pointer h-12 w-12 absolute top-0 right-0 mt-2 -mr-5"
-                    xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
-                    <path
-                        d="M11.5 0C17.847 0 23 5.153 23 11.5S17.847 23 11.5 23 0 17.847 0 11.5 5.153 0 11.5 0zm0 1C17.295 1 22 5.705 22 11.5S17.295 22 11.5 22 1 17.295 1 11.5 5.705 1 11.5 1zm.5 10h6v1h-6v6h-1v-6H5v-1h6V5h1v6z" />
-                </svg>
-                <!-- <button class="absolute top-0 right-0 bg-teal-400 rounded-full px-1 py-0 font-bold text-lg">+</button> -->
-                <p class="text-teal-400 font-bold text-xl mb-3">Sup3r-Us3r</p>
-                <img class="h-16 w-16 rounded-full shadow-2xl"
-                    src="https://pbs.twimg.com/profile_images/830533062807191552/TbkWKnnv_400x400.jpg" alt="Img">
-                <p class="mt-3 text-gray-600 text-center">"Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Quod, quibusdam!"</p>
-                <button
-                    class="mt-4 mb-2 bg-teal-400 rounded-full px-12 py-1 text-gray-100 font-semibold hover:bg-teal-300 focus:outline-none">Button</button>
-            </div>
+                    const reviewsContainer = document.getElementById('reviewsContainer');
 
-            <div class="carousel-focus flex items-center flex-col relative bg-white mx-5 my-10 px-4 py-3 rounded-lg shadow-lg"
-                style="width: 270px;">
-                <svg class="fill-current text-teal-400 hover:text-teal-500 cursor-pointer h-12 w-12 absolute top-0 right-0 mt-2 -mr-5"
-                    xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
-                    <path
-                        d="M11.5 0C17.847 0 23 5.153 23 11.5S17.847 23 11.5 23 0 17.847 0 11.5 5.153 0 11.5 0zm0 1C17.295 1 22 5.705 22 11.5S17.295 22 11.5 22 1 17.295 1 11.5 5.705 1 11.5 1zm.5 10h6v1h-6v6h-1v-6H5v-1h6V5h1v6z" />
-                </svg>
-                <!-- <button class="absolute top-0 right-0 bg-teal-400 rounded-full px-1 py-0 font-bold text-lg">+</button> -->
-                <p class="text-teal-400 font-bold text-xl mb-3">Sup3r-Us3r</p>
-                <img class="h-16 w-16 rounded-full shadow-2xl"
-                    src="https://pbs.twimg.com/profile_images/830533062807191552/TbkWKnnv_400x400.jpg" alt="Img">
-                <p class="mt-3 text-gray-600 text-center">"Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Quod, quibusdam!"</p>
-                <button
-                    class="mt-4 mb-2 bg-teal-400 rounded-full px-12 py-1 text-gray-100 font-semibold hover:bg-teal-300 focus:outline-none">Button</button>
-            </div>
+                    // Loop through the reviews array and create HTML elements for each review
+                    reviews.forEach(review => {
+                        const reviewCard = document.createElement('div');
+                        reviewCard.classList.add('bg-white', 'p-6', 'rounded', 'shadow-md');
+                        reviewCard.innerHTML = `
+                        <div class="carousel-focus flex items-center flex-col relative bg-white mx-5 my-10 px-4 py-3 rounded-lg shadow-lg"
+                            style="width: 270px;">
+                            <span class="text-teal-400 font-bold text-xl">${review.name}</span>
+                            <small class="capitalize text-gray-500 mb-3">${review.profession}</small>
+                            <img class="h-16 w-16 rounded-full shadow-2xl"
+                                src="https://pbs.twimg.com/profile_images/830533062807191552/TbkWKnnv_400x400.jpg" alt="Img">
+                            <p class="mt-3 text-gray-600 text-center">${review.content}</p>
+                        </div>
+                        `;
+                        reviewsContainer.appendChild(reviewCard);
+                    });
+                });
+            </script>
 
-            <div class="carousel-focus flex items-center flex-col relative bg-white mx-5 my-10 px-4 py-3 rounded-lg shadow-lg"
-                style="width: 270px;">
-                <svg class="fill-current text-teal-400 hover:text-teal-500 cursor-pointer h-12 w-12 absolute top-0 right-0 mt-2 -mr-5"
-                    xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
-                    <path
-                        d="M11.5 0C17.847 0 23 5.153 23 11.5S17.847 23 11.5 23 0 17.847 0 11.5 5.153 0 11.5 0zm0 1C17.295 1 22 5.705 22 11.5S17.295 22 11.5 22 1 17.295 1 11.5 5.705 1 11.5 1zm.5 10h6v1h-6v6h-1v-6H5v-1h6V5h1v6z" />
-                </svg>
-                <!-- <button class="absolute top-0 right-0 bg-teal-400 rounded-full px-1 py-0 font-bold text-lg">+</button> -->
-                <p class="text-teal-400 font-bold text-xl mb-3">Sup3r-Us3r</p>
-                <img class="h-16 w-16 rounded-full shadow-2xl"
-                    src="https://pbs.twimg.com/profile_images/830533062807191552/TbkWKnnv_400x400.jpg" alt="Img">
-                <p class="mt-3 text-gray-600 text-center">"Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Quod, quibusdam!"</p>
-                <button
-                    class="mt-4 mb-2 bg-teal-400 rounded-full px-12 py-1 text-gray-100 font-semibold hover:bg-teal-300 focus:outline-none">Button</button>
-            </div>
-
-            <div class="carousel-focus flex items-center flex-col relative bg-white mx-5 my-10 px-4 py-3 rounded-lg shadow-lg"
-                style="width: 270px;">
-                <svg class="fill-current text-teal-400 hover:text-teal-500 cursor-pointer h-12 w-12 absolute top-0 right-0 mt-2 -mr-5"
-                    xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
-                    <path
-                        d="M11.5 0C17.847 0 23 5.153 23 11.5S17.847 23 11.5 23 0 17.847 0 11.5 5.153 0 11.5 0zm0 1C17.295 1 22 5.705 22 11.5S17.295 22 11.5 22 1 17.295 1 11.5 5.705 1 11.5 1zm.5 10h6v1h-6v6h-1v-6H5v-1h6V5h1v6z" />
-                </svg>
-                <!-- <button class="absolute top-0 right-0 bg-teal-400 rounded-full px-1 py-0 font-bold text-lg">+</button> -->
-                <p class="text-teal-400 font-bold text-xl mb-3">Sup3r-Us3r</p>
-                <img class="h-16 w-16 rounded-full shadow-2xl"
-                    src="https://pbs.twimg.com/profile_images/830533062807191552/TbkWKnnv_400x400.jpg" alt="Img">
-                <p class="mt-3 text-gray-600 text-center">"Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Quod, quibusdam!"</p>
-                <button
-                    class="mt-4 mb-2 bg-teal-400 rounded-full px-12 py-1 text-gray-100 font-semibold hover:bg-teal-300 focus:outline-none">Button</button>
-            </div>
-
-            <div class="carousel-focus flex items-center flex-col relative bg-white mx-5 my-10 px-4 py-3 rounded-lg shadow-lg"
-                style="width: 270px;">
-                <svg class="fill-current text-teal-400 hover:text-teal-500 cursor-pointer h-12 w-12 absolute top-0 right-0 mt-2 -mr-5"
-                    xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
-                    <path
-                        d="M11.5 0C17.847 0 23 5.153 23 11.5S17.847 23 11.5 23 0 17.847 0 11.5 5.153 0 11.5 0zm0 1C17.295 1 22 5.705 22 11.5S17.295 22 11.5 22 1 17.295 1 11.5 5.705 1 11.5 1zm.5 10h6v1h-6v6h-1v-6H5v-1h6V5h1v6z" />
-                </svg>
-                <!-- <button class="absolute top-0 right-0 bg-teal-400 rounded-full px-1 py-0 font-bold text-lg">+</button> -->
-                <p class="text-teal-400 font-bold text-xl mb-3">Sup3r-Us3r</p>
-                <img class="h-16 w-16 rounded-full shadow-2xl"
-                    src="https://pbs.twimg.com/profile_images/830533062807191552/TbkWKnnv_400x400.jpg" alt="Img">
-                <p class="mt-3 text-gray-600 text-center">"Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Quod, quibusdam!"</p>
-                <button
-                    class="mt-4 mb-2 bg-teal-400 rounded-full px-12 py-1 text-gray-100 font-semibold hover:bg-teal-300 focus:outline-none">Button</button>
-            </div>
-
-            <div class="carousel-focus flex items-center flex-col relative bg-white mx-5 my-10 px-4 py-3 rounded-lg shadow-lg"
-                style="width: 270px;">
-                <svg class="fill-current text-teal-400 hover:text-teal-500 cursor-pointer h-12 w-12 absolute top-0 right-0 mt-2 -mr-5"
-                    xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
-                    <path
-                        d="M11.5 0C17.847 0 23 5.153 23 11.5S17.847 23 11.5 23 0 17.847 0 11.5 5.153 0 11.5 0zm0 1C17.295 1 22 5.705 22 11.5S17.295 22 11.5 22 1 17.295 1 11.5 5.705 1 11.5 1zm.5 10h6v1h-6v6h-1v-6H5v-1h6V5h1v6z" />
-                </svg>
-                <!-- <button class="absolute top-0 right-0 bg-teal-400 rounded-full px-1 py-0 font-bold text-lg">+</button> -->
-                <p class="text-teal-400 font-bold text-xl mb-3">Sup3r-Us3r</p>
-                <img class="h-16 w-16 rounded-full shadow-2xl"
-                    src="https://pbs.twimg.com/profile_images/830533062807191552/TbkWKnnv_400x400.jpg" alt="Img">
-                <p class="mt-3 text-gray-600 text-center">"Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Quod, quibusdam!"</p>
-                <button
-                    class="mt-4 mb-2 bg-teal-400 rounded-full px-12 py-1 text-gray-100 font-semibold hover:bg-teal-300 focus:outline-none">Button</button>
-            </div>
-
-            <div class="carousel-focus flex items-center flex-col relative bg-white mx-5 my-10 px-4 py-3 rounded-lg shadow-lg"
-                style="width: 270px;">
-                <svg class="fill-current text-teal-400 hover:text-teal-500 cursor-pointer h-12 w-12 absolute top-0 right-0 mt-2 -mr-5"
-                    xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
-                    <path
-                        d="M11.5 0C17.847 0 23 5.153 23 11.5S17.847 23 11.5 23 0 17.847 0 11.5 5.153 0 11.5 0zm0 1C17.295 1 22 5.705 22 11.5S17.295 22 11.5 22 1 17.295 1 11.5 5.705 1 11.5 1zm.5 10h6v1h-6v6h-1v-6H5v-1h6V5h1v6z" />
-                </svg>
-                <!-- <button class="absolute top-0 right-0 bg-teal-400 rounded-full px-1 py-0 font-bold text-lg">+</button> -->
-                <p class="text-teal-400 font-bold text-xl mb-3">Sup3r-Us3r</p>
-                <img class="h-16 w-16 rounded-full shadow-2xl"
-                    src="https://pbs.twimg.com/profile_images/830533062807191552/TbkWKnnv_400x400.jpg" alt="Img">
-                <p class="mt-3 text-gray-600 text-center">"Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Quod, quibusdam!"</p>
-                <button
-                    class="mt-4 mb-2 bg-teal-400 rounded-full px-12 py-1 text-gray-100 font-semibold hover:bg-teal-300 focus:outline-none">Button</button>
-            </div>
         </div>
 
     </div>
