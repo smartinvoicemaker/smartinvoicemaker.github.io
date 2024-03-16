@@ -20,10 +20,10 @@
 
     <div class="container mx-auto w-full overflow-hidden relative">
         <div class="w-full h-full absolute">
-            <div class="w-1/4 h-full absolute z-50 left-0"
-                style="background: linear-gradient(to right, #edf2f7 0%, rgba(255, 255, 255, 0) 100%);"></div>
-            <div class="w-1/4 h-full absolute z-50 right-0"
-                style="background: linear-gradient(to left, #edf2f7 0%, rgba(255, 255, 255, 0) 100%);"></div>
+            <div class="w-1/6 h-full absolute z-50 left-0"
+                style="background: linear-gradient(to right, #edf2f7 0%, rgba(255, 255, 255, 0) 10%);"></div>
+            <div class="w-1/6 h-full absolute z-50 right-0"
+                style="background: linear-gradient(to left, #edf2f7 0%, rgba(255, 255, 255, 0) 10%);"></div>
         </div>
 
         <div id="reviewsContainer" class="carousel-items flex items-center justify-center"
@@ -35,61 +35,61 @@
                         {
                             name: "John Doe",
                             profession: "Freelancer",
-                            avatar: "avatar",
+                            avatar: "avatar1",
                             content: "This invoice maker app is fantastic! It's really easy to use and has all the features I need."
                         },
                         {
                             name: "Jane Smith",
                             profession: "Small Business Owner",
-                            avatar: "avatar",
+                            avatar: "avatar2",
                             content: "I've tried several invoice apps before, but this one is by far the best. Simple yet powerful."
                         },
                         {
                             name: "Michael Johnson",
                             profession: "Entrepreneur",
-                            avatar: "avatar",
+                            avatar: "avatar3",
                             content: "As a freelancer, I rely on this app to send invoices to my clients. It saves me so much time!"
                         },
                         {
                             name: "Emily Wilson",
                             profession: "Consultant",
-                            avatar: "avatar",
+                            avatar: "avatar4",
                             content: "The interface is intuitive and user-friendly. I can create professional invoices in minutes."
                         },
                         {
                             name: "David Brown",
                             profession: "Accountant",
-                            avatar: "avatar",
+                            avatar: "avatar5",
                             content: "EZInvoice has made my invoicing process much smoother. Highly recommended for small businesses."
                         },
                         {
                             name: "Jessica Lee",
                             profession: "Designer",
-                            avatar: "avatar",
+                            avatar: "avatar6",
                             content: "I love the customization options available in EZInvoice. It allows me to brand my invoices effectively."
                         },
                         {
                             name: "Mark Taylor",
                             profession: "Developer",
-                            avatar: "avatar",
+                            avatar: "avatar7",
                             content: "This app has simplified my billing process. It's reliable and efficient."
                         },
                         {
                             name: "Sarah Garcia",
                             profession: "Manager",
-                            avatar: "avatar",
+                            avatar: "avatar8",
                             content: "EZInvoice integrates seamlessly with other tools I use for my business. It's a game-changer."
                         },
                         {
                             name: "Daniel Martinez",
                             profession: "Business Analyst",
-                            avatar: "avatar",
+                            avatar: "avatar9",
                             content: "The reporting feature in EZInvoice provides valuable insights into my finances. Great for analyzing cash flow."
                         },
                         {
                             name: "Rachel Clark",
                             profession: "Writer",
-                            avatar: "avatar",
+                            avatar: "avatar10",
                             content: "I've been using EZInvoice for months now, and it's been a lifesaver. No more late nights sorting through invoices."
                         }
                     ];
@@ -99,14 +99,16 @@
                     // Loop through the reviews array and create HTML elements for each review
                     reviews.forEach(review => {
                         const reviewCard = document.createElement('div');
-                        reviewCard.classList.add('bg-white', 'p-6', 'rounded', 'shadow-md');
+                        // reviewCard.classList.add('bg-white', 'p-6', 'rounded', 'shadow-md');
                         reviewCard.innerHTML = `
                         <div class="carousel-focus flex items-center flex-col relative bg-white mx-5 my-10 px-4 py-3 rounded-lg shadow-lg"
                             style="width: 270px;">
-                            <span class="text-teal-400 font-bold text-xl">${review.name}</span>
-                            <small class="capitalize text-gray-500 mb-3">${review.profession}</small>
                             <img class="h-16 w-16 rounded-full shadow-2xl"
-                                src="https://pbs.twimg.com/profile_images/830533062807191552/TbkWKnnv_400x400.jpg" alt="Img">
+                                src="${review.avatar}.jpg" alt="Img">
+                            <span class="text-teal-400 font-bold text-xl">${review.name}</span>
+                            <small class="capitalize text-gray-500 mb-1">${review.profession}</small>
+                            <img src="star.svg" alt="star" width="80px"/>
+                            <div mb-3/>
                             <p class="mt-3 text-gray-600 text-center">${review.content}</p>
                         </div>
                         `;
