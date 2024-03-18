@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="../dist/output.css" rel="stylesheet">
+    <script src='script.js'></script>
+</head>
+
+<body>
+    <div class="container flex flex-col bg-green-600 max-w-full justify-items-center items-center content-center p-8">
+        <h1 class="text-white text-4xl font-bold text-center">
+            FREE CREATE INVOICES IN SECONDS
+        </h1>
+        <p class="text-gray-200 text-lg text-center py-4">Invoice your customer in three easy steps</p>
+        <button onclick="redirectToAppLink()" class="bg-red-600 text-white rounded-lg p-4">
+            CREATE FREE INVOICES
+        </button>
+    </div>
+    <div id="template" class="flex flex-col justify-center items-center p-4">
+        <p class="text-lg mb-6">
+            Choose your favorite theme free invoice template
+        </p>
+        <script>
+            // Mảng chứa thông tin template
+            var templates = [
+                { name: "Sales Invoice Template", id: 1 },
+                { name: "Excel Invoice Template", id: 2 },
+                { name: "Word Invoice Template", id: 3 },
+                { name: "Freelance Invoice Template", id: 4 },
+                { name: "Freelance Invoice Template", id: 5 },
+                { name: "Freelance Invoice Template", id: 6 },
+            ];
+
+
+            var templateList = document.getElementById("template");
+            for (var i = 0; i < templates.length; i++) {
+                var t = templates[i];
+                var item = document.createElement('div');
+                item.innerHTML = `
+                <div class="mb-4">
+                    <a class="justify-center items-center " href="https://onelink.to/wx4kfh">
+                        <p class="text-lg font-bold text-center">FREE TEMPLATE ${t.id}</p>
+                        <div class="border-grey-300 border-2 pt-4 mb-4">
+                            <img class="self-center items-end" src="./imgs/invoice-template-${t.id}.jpg" />
+                        </div>
+                    </a>
+                </div>
+                `;
+                templateList.appendChild(item);
+            }
+        </script>
+        <button onclick="redirectToAppLink()" class="bg-red-600 text-white rounded-lg p-4">
+            MORE FREE INVOICE TEMPLATES
+        </button>
+    </div>
+</body>
+
+</html>
