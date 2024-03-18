@@ -4,18 +4,18 @@
 <head>
     <meta charset='utf-8'>
     <title>Page Title</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link href="../dist/output.css" rel="stylesheet">
+    <meta name='viewport' content='width=device-width, init˝ial-scale=1'>
+    <link href="../build/output.css" rel="stylesheet">
     <script src='script.js'></script>
 </head>
 
-<body>
+<body class="font-pub bg-[#FAFAFA]">
     <div class="container flex flex-col bg-green-600 max-w-full justify-items-center items-center content-center p-8">
         <h1 class="text-white text-4xl font-bold text-center">
             FREE CREATE INVOICES IN SECONDS
         </h1>
         <p class="text-gray-200 text-lg text-center py-4">Invoice your customer in three easy steps</p>
-        <button onclick="redirectToAppLink()" class="bg-red-600 text-white rounded-lg p-4">
+        <button onclick="redirectToAppLink()" class="bg-red-500 text-white rounded-lg p-4">
             CREATE FREE INVOICES
         </button>
     </div>
@@ -24,6 +24,7 @@
             Choose your favorite theme free invoice template
         </p>
         <script>
+
             // Mảng chứa thông tin template
             var templates = [
                 { name: "Sales Invoice Template", id: 1 },
