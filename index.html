@@ -12,22 +12,22 @@
   <link rel="stylesheet" href="./build/output.css">
   <title>Invoice Maker: Create Professional Invoices Easily-ezInvoice</title>
   <meta name="description"
-    content="Make professional invoices effortlessly with our Invoice Maker app. Simplify your billing process and present your business in the best light.Get started today!">
+    content="Make professional invoices effortlessly with our Invoice Maker app. Simplify your billing process and present your business in the best light. Get started today!">
 </head>
 
 <body class="font-pub bg-[#FAFAFA]">
   <!-- Header -->
-  <header class="bg-white fixed top-0 w-full z-50">
-    <nav class="container mx-auto"></nav>
-      <div class="flex items-center justify-between px-3">
-        <a href="https://ez-invoice.com/">
+  <header class="bg-white fixed top-0 w-full z-50 shadow-sm">
+    <nav class="container mx-auto py-3">
+      <div class="flex items-center justify-between px-4 md:px-6">
+        <a href="https://ez-invoice.com/" class="flex items-center">
           <img src="./images/logo.png" alt="ezInvoice" class="h-10" width="60" height="50" />
         </a>
-        <div class="flex items-center">
-          <a href="https://bit.ly/invoice_maker_android">
+        <div class="flex items-center space-x-4">
+          <a href="https://bit.ly/invoice_maker_android" class="transition hover:opacity-80">
             <img src="./images/goolge-play.svg" alt="GooglePlay">
           </a>
-          <a href="https://bit.ly/invoice-maker-ios" class="block pl-4">
+          <a href="https://bit.ly/invoice-maker-ios" class="transition hover:opacity-80">
             <img src="./images/apple-store.svg" alt="AppStore">
           </a>
         </div>
@@ -36,179 +36,198 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="relative bg-[#FAFAFA] mt-0 lg:mt-10 pb-10 py-0 lg:py-10 xl:py-0 lg:pb-0">
-    <div class="px-0 lg:px-10 xl:px-0">
-      <div class="flex flex-col lg:flex-row justify-center items-center">
-        <div class="w-full lg:w-1/2 lg:order-2">
+  <section class="relative bg-[#FAFAFA] mt-16 lg:mt-24 pb-10 py-12 lg:py-20 xl:py-24">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="flex flex-col lg:flex-row justify-between items-center">
+        <div class="w-full lg:w-1/2 lg:pr-12">
+          <h1 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-dBlue text-center lg:text-left mb-6 lg:mb-8">
+            Make Invoices in Seconds
+          </h1>
+          <p class="text-base md:text-lg lg:text-xl text-center lg:text-left text-[#9698a6] mb-8 lg:mb-10 max-w-2xl mx-auto lg:mx-0">
+            Empower your small business with our lightning-fast mobile app, Invoice Maker. Streamline your workflow on
+            the go with professional invoicing at your fingertips!
+          </p>
+          <div class="flex items-center justify-center lg:justify-start transform scale-110 mb-8 lg:mb-0">
+            <a href="https://bit.ly/invoice_maker_android" class="transition hover:opacity-80">
+              <img src="./images/goolge-play.svg" alt="GooglePlay" />
+            </a>
+            <a href="https://bit.ly/invoice-maker-ios" class="block pl-4 transition hover:opacity-80">
+              <img src="./images/apple-store.svg" alt="AppStore" />
+            </a>
+          </div>
+        </div>
+        <div class="w-full lg:w-1/2">
           <!-- Mobile Hero -->
-          <div class="relative lg:hidden">
+          <div class="relative lg:hidden mt-8">
             <img src="./images/bg-intro-mobile.svg" alt="" class="w-full" aria-hidden="true">
             <img src="./images/image-mockups.png" alt="Phone mockup"
               class="absolute -top-24 mx-auto left-0 right-0 scale-90 md:scale-100" aria-hidden="true">
           </div>
           <!-- Desktop Hero -->
-          <div class="hidden lg:block">
+          <div class="hidden lg:block relative">
             <img src="./images/bg-intro-desktop.svg" alt=""
               class="w-full ml-48 xl:ml-52 -mt-20 xl:-mt-44 h-full scale-150" aria-hidden="true">
             <img src="./images/image-mockups.png" alt="Phone mockup"
               class="w-[43%] absolute -right-20 -top-40 xl:-top-60 scale-110" aria-hidden="true">
           </div>
         </div>
-        <div class="max-w-xl lg:max-w-lg px-4 mt-0 lg:mt-0 xl:px-0 mx-auto w-full lg:w-1/2 lg:order-1">
-          <h1 class="capitalize text-3xl md:text-5xl xl:text-6xl lg:text-left text-dBlue text-center mb-10">
-            Make invoices in seconds.
-          </h1>
-          <p class="text-base text-center md:text-lg lg:text-xl lg:text-left text-[#9698a6] mb-10">
-            Empower your small business with our lightning-fast mobile app, Invoice Maker. Streamline your workflow on
-            the go!
-          </p>
-          <div class="flex items-center justify-center transform scale-125"></div>
-          </p>
-          <div class="flex items-center justify-center transform scale-125">
-            <a href="https://bit.ly/invoice_maker_android">
-              <img src="./images/goolge-play.svg" alt="GooglePlay" />
-            </a>
-            <a href="https://bit.ly/invoice-maker-ios" class="block pl-4">
-              <img src="./images/apple-store.svg" alt="AppStore" />
-            </a>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
-  <iframe id="myIframe" class="bg-white w-full z-50 p-6" src="./review/review.html" frameborder="0"
-    height="500px"></iframe>
-  <!-- about section -->
-  <section class="pb-8 mt-0 lg:mt-20 pt-14 lg:pt-24 bg-[#F3F4F6]">
-    <div class="container mx-auto px-5">
-      <div class="max-w-2xl mx-auto xl:mx-0 w-full px-4">
-        <h2 class="capitalize text-4xl xl:text-left text-dBlue text-center mb-5">
-          why choose ezInvoice?
+  <!-- Reviews Section -->
+  <section class="py-12 bg-white">
+    <div class="container mx-auto px-4 md:px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-dBlue mb-8">What Our Users Say</h2>
+      <iframe id="myIframe" class="w-full z-50 rounded-lg shadow-md" src="./review/review.html" frameborder="0"
+        height="500px"></iframe>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-16 lg:py-20 bg-[#F3F4F6]">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="max-w-3xl mx-auto text-center mb-12 lg:mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-dBlue mb-4">
+          Why Choose ezInvoice?
         </h2>
-        <p class="text-base capitalize text-center xl:text-lg xl:text-left text-[#9698a6] mb-16">
-          This invoice-making app is sure to satisfy you, as it can replace your computer, enabling you to generate
-          invoices quickly anytime, anywhere.
+        <p class="text-lg text-[#9698a6]">
+          This invoice-making app is designed to replace your computer, enabling you to generate
+          professional invoices quickly anytime, anywhere.
         </p>
       </div>
-      <!-- why choose img -->
-      <div class="flex flex-wrap">
-        <div class="w-full px-8 md:w-1/2 xl:w-1/4">
-          <img src="./images/icon-online.svg" alt="online" class="mx-auto xl:mx-0 mb-4" />
-          <div class="py-5 max-w-sm mx-auto xl:mx-0">
-            <h3 class="capitalize text-2xl text-center xl:text-left text-dBlue mb-5">
-              Professional invoices
-            </h3>
-            <p class="capitalize text-center xl:text-left text-base text-[#9698a6] mb-8">
-              Easily send invoices as PDF or JPG, ensuring a sleek and polished presentation for your clients.
-            </p>
-          </div>
+      
+      <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+          <img src="./images/icon-online.svg" alt="Professional invoices" class="mb-4 h-16 w-auto" />
+          <h3 class="text-xl font-semibold text-dBlue mb-3">
+            Professional Invoices
+          </h3>
+          <p class="text-[#9698a6]">
+            Easily send invoices as PDF or JPG, ensuring a sleek and polished presentation for your clients.
+          </p>
         </div>
-        <div class="w-full px-8 md:w-1/2 xl:w-1/4">
-          <img src="./images/icon-budgeting.svg" alt="budgeting" class="mx-auto xl:mx-0 mb-4" />
-          <div class="py-5 max-w-sm mx-auto xl:mx-0">
-            <h3 class="capitalize text-2xl text-center xl:text-left text-dBlue mb-5">
-              Create in seconds
-            </h3>
-            <p class="capitalize text-center xl:text-left text-base text-[#9698a6] mb-8">
-              Edit and reorder items swiftly, allowing you to generate invoices rapidly and efficiently.
-            </p>
-          </div>
-        </div>
-        <div class="w-full px-8 md:w-1/2 xl:w-1/4">
-          <img src="./images/icon-onboarding.svg" alt="onboarding" class="mx-auto xl:mx-0 mb-4" />
-          <div class="py-5 max-w-sm mx-auto xl:mx-0">
-            <h3 class="capitalize text-2xl text-center xl:text-left text-dBlue mb-5">
-              Track payment statuses
-            </h3>
-            <p class="capitalize text-center xl:text-left text-base text-[#9698a6] mb-8">
-              Unpaid, paid, overdue, partlyKeep tabs on payment statuses, whether they're unpaid, paid, overdue, or
-              partially paid, ensuring you stay on top of your finances effortlessly.
-            </p>
-          </div>
-        </div>
-        <div class="w-full px-8 md:w-1/2 xl:w-1/4">
-          <img src="./images/icon-api.svg" alt="api" class="mx-auto xl:mx-0 mb-4" />
-          <div class="py-5 max-w-sm mx-auto xl:mx-0">
-            <h3 class="capitalize text-2xl text-center xl:text-left text-dBlue mb-5">
-              Personalize Invoice
-            </h3>
-            <p class="capitalize text-center xl:text-left text-base text-[#9698a6] mb-8">
-              Add personal touches such as signatures, logos, watermarks, and more, giving your invoices a professional
-              and customized appearance tailored to your brand.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- article section -->
-  <section class="pb-32 pt-16 bg-[#FAFAFA]">
-    <div class="container mx-auto px-5">
-      <div class="max-w-2xl mx-auto xl:mx-0 w-full">
-        <h2 class="capitalize text-4xl pl-0 xl:pl-5 xl:text-left text-dBlue text-center mb-11">
-          latest articles
-        </h2>
-      </div>
-      <div class="flex flex-wrap">
         
-        <div class="px-4 w-full md:w-1/2 xl:w-1/4">
-          <div class="bg-white rounded-xl overflow-hidden hover:shadow-md transition duration-150 ease-in-out mb-12">
-            <img src="./images/image-plane.jpg" alt="image-plane" class="w-full" />
-            <div class="py-5 px-6">
-              <small class="capitalize text-[#9698a6]">by wilson hutton</small>
-              <h2 class="mt-3 text-xl mb-4 capitalize hover:text-lGreen transition duration-150 ease-in">
-                <a href="pages/best-invoice-app.html"
-                  class="text-dBlue hover:text-lGreen transition duration-150 ease-in block">Best Invoicing App for
-                  Small Businesses: ezInvoice
-                </a>
-              </h2>
-              <p class="text-[#9698a6] text-sm capitalize font-medium">
-                Small businesses need to keep track of their finances, and invoicing is an important part of that
-                process. Invoices are documents that businesses
-                …
-              </p>
-            </div>
+        <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+          <img src="./images/icon-budgeting.svg" alt="Create in seconds" class="mb-4 h-16 w-auto" />
+          <h3 class="text-xl font-semibold text-dBlue mb-3">
+            Create in Seconds
+          </h3>
+          <p class="text-[#9698a6]">
+            Edit and reorder items swiftly, allowing you to generate invoices rapidly and efficiently.
+          </p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+          <img src="./images/icon-onboarding.svg" alt="Track payment statuses" class="mb-4 h-16 w-auto" />
+          <h3 class="text-xl font-semibold text-dBlue mb-3">
+            Track Payment Statuses
+          </h3>
+          <p class="text-[#9698a6]">
+            Keep tabs on payment statuses, whether they're unpaid, paid, overdue, or
+            partially paid, ensuring you stay on top of your finances effortlessly.
+          </p>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+          <img src="./images/icon-api.svg" alt="Personalize Invoice" class="mb-4 h-16 w-auto" />
+          <h3 class="text-xl font-semibold text-dBlue mb-3">
+            Personalize Invoice
+          </h3>
+          <p class="text-[#9698a6]">
+            Add personal touches such as signatures, logos, watermarks, and more, giving your invoices a professional
+            and customized appearance tailored to your brand.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Articles Section -->
+  <section class="py-16 lg:py-20 bg-[#FAFAFA]">
+    <div class="container mx-auto px-4 md:px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-center md:text-left text-dBlue mb-10">
+        Latest Articles
+      </h2>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
+        <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+          <img src="./images/image-plane.jpg" alt="Best Invoicing App" class="w-full h-48 object-cover" />
+          <div class="p-6">
+            <p class="text-sm text-[#9698a6] mb-2">By Wilson Hutton</p>
+            <h3 class="text-xl font-semibold mb-3">
+              <a href="pages/best-invoice-app.html"
+                class="text-dBlue hover:text-lGreen transition duration-150 ease-in">
+                Best Invoicing App for Small Businesses: ezInvoice
+              </a>
+            </h3>
+            <p class="text-[#9698a6]">
+              Small businesses need to keep track of their finances, and invoicing is an important part of that
+              process. Invoices are documents that businesses...
+            </p>
+            <a href="pages/best-invoice-app.html" class="inline-block mt-4 text-lGreen font-medium hover:underline">
+              Read More
+            </a>
           </div>
         </div>
-        <div class="px-4 w-full md:w-1/2 xl:w-1/4">
-          <div class="bg-white rounded-xl overflow-hidden hover:shadow-md transition duration-150 ease-in-out mb-12">
-            <img src="./images/image-confetti.jpg" alt="image-confetti" class="w-full" />
-            <div class="py-5 px-6">
-              <small class="capitalize text-[#9698a6]">by claire robinson</small>
-              <h2 class="mt-3 text-xl mb-4 capitalize hover:text-lGreen transition duration-150 ease-in">
-                <a href="pages/invoice-recipt.html"
-                  class="text-dBlue hover:text-lGreen transition duration-150 ease-in block">Invoice vs. Receipt: What's
-                  the Difference?
-                </a>
-              </h2>
-              <p class="text-[#9698a6] text-sm capitalize font-medium">
-                Explore the disparity between invoices and receipts in "Invoice vs. Receipt: What's the Difference?"
-                Learn their unique functions and when to employ each.
-              </p>
-            </div>
+        
+        <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300">
+          <img src="./images/image-confetti.jpg" alt="Invoice vs Receipt" class="w-full h-48 object-cover" />
+          <div class="p-6">
+            <p class="text-sm text-[#9698a6] mb-2">By Claire Robinson</p>
+            <h3 class="text-xl font-semibold mb-3">
+              <a href="pages/invoice-recipt.html"
+                class="text-dBlue hover:text-lGreen transition duration-150 ease-in">
+                Invoice vs. Receipt: What's the Difference?
+              </a>
+            </h3>
+            <p class="text-[#9698a6]">
+              Explore the disparity between invoices and receipts. Learn their unique functions and when to employ each
+              in your business operations.
+            </p>
+            <a href="pages/invoice-recipt.html" class="inline-block mt-4 text-lGreen font-medium hover:underline">
+              Read More
+            </a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- footer -->
-  <footer class="bg-dBlue py-6">
-    <div class="container mx-auto">
-      <div class="flex flex-wrap items-center justify-center px-5">
-        <ul class="flex flex-row capitalize text-center text-white font-thin text-base">
-          <li>
-            <a href="pages/terms.html" class="hover:text-lGreen transition duration-100 ease-in px-4">Terms</a>
-          </li>
-          <li>
-            <a href="pages/privacy.html" class="hover:text-lGreen transition duration-100 ease-in px-4">Privacy Policy</a>
-          </li>
-        </ul>
+  <!-- CTA Section -->
+  <section class="py-12 lg:py-16 bg-dBlue text-white">
+    <div class="container mx-auto px-4 md:px-6 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-6">Ready to Simplify Your Invoicing?</h2>
+      <p class="text-lg mb-8 max-w-2xl mx-auto">
+        Download ezInvoice now and create professional invoices in seconds, anytime, anywhere.
+      </p>
+      <div class="flex items-center justify-center space-x-4">
+        <a href="https://bit.ly/invoice_maker_android" class="transition hover:opacity-80">
+          <img src="./images/goolge-play.svg" alt="GooglePlay" />
+        </a>
+        <a href="https://bit.ly/invoice-maker-ios" class="transition hover:opacity-80">
+          <img src="./images/apple-store.svg" alt="AppStore" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#1c2431] py-6">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="flex flex-col md:flex-row items-center justify-between">
+        <div class="flex items-center space-x-4 md:space-x-8">
+          <a href="pages/terms.html" class="text-white hover:text-lGreen transition duration-150 ease-in text-sm md:text-base">Terms</a>
+          <a href="pages/privacy.html" class="text-white hover:text-lGreen transition duration-150 ease-in text-sm md:text-base">Privacy Policy</a>
+        </div>
+        
+        <p class="text-[#9698a6] text-sm mt-4 md:mt-0">
+          © ezInvoice. All Rights Reserved
+        </p>
       </div>
     </div>
   </footer>
+  
   <script src="script.js"></script>
 </body>
 
