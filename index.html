@@ -15,30 +15,13 @@
     content="Make professional invoices effortlessly with our Invoice Maker app. Simplify your billing process and present your business in the best light. Get started today!">
   <!-- Include constants file before other scripts -->
   <script src="./js/constants.js"></script>
+  <!-- Include components -->
+  <script src="./components/header.js"></script>
+  <script src="./components/footer.js"></script>
 </head>
 
 <body class="font-pub bg-[#FAFAFA]">
-  <!-- Header -->
-  <header class="bg-white fixed top-0 w-full z-50 shadow-sm">
-    <nav class="container mx-auto py-3">
-      <div class="flex items-center justify-between px-4 md:px-6">
-        <a href="#" class="flex items-center" id="main-logo-link">
-          <img src="./images/logo.png" alt="ezInvoice" class="h-10" width="60" height="50" id="header-logo" />
-        </a>
-        <div class="flex items-center">
-          <a href="./pages/tutorials.html" class="mr-6 text-dBlue hover:text-lGreen transition duration-150 ease-in hidden md:block">Tutorials</a>
-          <div class="flex items-center space-x-4">
-            <a href="#" class="transition hover:opacity-80" id="google-play-header">
-              <img src="./images/goolge-play.svg" alt="GooglePlay" id="google-play-img">
-            </a>
-            <a href="#" class="transition hover:opacity-80" id="appstore-header">
-              <img src="./images/apple-store.svg" alt="AppStore" id="appstore-img">
-            </a>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </header>
+  <!-- Header is loaded via header.js -->
 
   <!-- Hero Section -->
   <section class="relative bg-[#FAFAFA] mt-16 lg:mt-24 pb-10 py-12 lg:py-20 xl:py-24">
@@ -276,54 +259,35 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="bg-[#1c2431] py-6">
-    <div class="container mx-auto px-4 md:px-6">
-      <div class="flex flex-col md:flex-row items-center justify-between">
-        <div class="flex items-center space-x-4 md:space-x-8">
-          <a href="./pages/tutorials.html" class="text-white hover:text-lGreen transition duration-150 ease-in text-sm md:text-base p-4">Tutorials</a>
-          <a href="./pages/terms.html" class="text-blue hover:text-lGreen transition duration-150 ease-in text-sm md:text-base p-4" id="terms-link">Terms</a>
-          <a href="./pages/privacy.html" class="text-blue hover:text-lGreen transition duration-150 ease-in text-sm md:text-base" id="privacy-link">Privacy Policy</a>
-        </div>
-        
-        <p class="text-[#9698a6] text-sm mt-4 md:mt-0">
-          © ezInvoice. All Rights Reserved
-        </p>
-      </div>
-    </div>
-  </footer>
+  <!-- Footer is loaded via footer.js -->
   
   <script src="script.js"></script>
   <script>
     // Apply constant URLs to all relevant elements once the DOM is loaded
     document.addEventListener('DOMContentLoaded', function() {
-      // Set website URL
-      document.getElementById('main-logo-link').href = APP_CONSTANTS.WEBSITE_URL;
-      
-      // Set app store links in header
-      document.getElementById('google-play-header').href = APP_CONSTANTS.ANDROID_APP;
-      document.getElementById('appstore-header').href = APP_CONSTANTS.IOS_APP;
-      
-      // Set app store links in hero section
-      document.getElementById('google-play-hero').href = APP_CONSTANTS.ANDROID_APP;
-      document.getElementById('appstore-hero').href = APP_CONSTANTS.IOS_APP;
+      // Set app store links in hero section if they exist
+      if (document.getElementById('google-play-hero')) {
+        document.getElementById('google-play-hero').href = APP_CONSTANTS.ANDROID_APP;
+      }
+      if (document.getElementById('appstore-hero')) {
+        document.getElementById('appstore-hero').href = APP_CONSTANTS.IOS_APP;
+      }
       
       // Set article links
-      document.getElementById('invoice-app-link').href = APP_CONSTANTS.INVOICE_APP_PAGE;
-      document.getElementById('invoice-receipt-link').href = APP_CONSTANTS.INVOICE_RECEIPT_PAGE;
+      if (document.getElementById('invoice-app-link')) {
+        document.getElementById('invoice-app-link').href = APP_CONSTANTS.INVOICE_APP_PAGE;
+      }
+      if (document.getElementById('invoice-receipt-link')) {
+        document.getElementById('invoice-receipt-link').href = APP_CONSTANTS.INVOICE_RECEIPT_PAGE;
+      }
       
       // Set app store links in CTA section
-      document.getElementById('google-play-cta').href = APP_CONSTANTS.ANDROID_APP;
-      document.getElementById('appstore-cta').href = APP_CONSTANTS.IOS_APP;
-      
-      // Set footer links
-      document.getElementById('terms-link').href = APP_CONSTANTS.TERMS_PAGE;
-      document.getElementById('privacy-link').href = APP_CONSTANTS.PRIVACY_PAGE;
-
-      // Add tutorials link to constants application
-      document.querySelectorAll('a[href="./pages/tutorials.html"]').forEach(link => {
-        link.href = APP_CONSTANTS.TUTORIALS_PAGE || './pages/tutorials.html';
-      });
+      if (document.getElementById('google-play-cta')) {
+        document.getElementById('google-play-cta').href = APP_CONSTANTS.ANDROID_APP;
+      }
+      if (document.getElementById('appstore-cta')) {
+        document.getElementById('appstore-cta').href = APP_CONSTANTS.IOS_APP;
+      }
     });
   </script>
 </body>

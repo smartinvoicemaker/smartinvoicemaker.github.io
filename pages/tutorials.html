@@ -10,7 +10,12 @@
         integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;700&display=swap" rel="stylesheet" />
+    <!-- Include constants.js first -->
     <script src="../js/constants.js"></script>
+    <!-- Include component scripts -->
+    <script src="../components/header.js"></script>
+    <script src="../components/footer.js"></script>
+    <script src="../components/component-loader.js"></script>
     <style>
         .video-container {
             position: relative;
@@ -56,16 +61,11 @@
 </head>
 
 <body class="bg-gray-100">
+    <!-- Header container, will be populated by JavaScript -->
+    <div id="header-container"></div>
 
-    <!-- Header -->
-    <header class="bg-white fixed top-0 w-full z-50 shadow-sm">
-        <nav class="container mx-auto py-3">
-            <div class="flex items-center justify-between px-4 md:px-6">
-                <a href="../index.html" class="flex items-center" id="main-logo-link">
-                    <img src="../images/logo.svg" alt="ezInvoice" />
-                </a>
-                <div class="flex items-center space-x-4">
-                    <a href="https://bit.ly/invoice_maker_android" class="transition hover:opacity-80" id="google-play-header">
+    <div class="container mx-auto px-4 pt-28 py-8">
+        <!-- Title Section -->
                         <img src="../images/goolge-play.svg" alt="GooglePlay" />
                     </a>
                     <a href="https://bit.ly/invoice-maker-ios" class="transition hover:opacity-80 block pl-4" id="appstore-header">
