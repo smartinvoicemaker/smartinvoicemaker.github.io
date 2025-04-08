@@ -263,31 +263,10 @@
   
   <script src="script.js"></script>
   <script>
-    // Apply constant URLs to all relevant elements once the DOM is loaded
+    // This can be simplified - our component-loader now handles all the link updates
+    // You can remove this entire script block or keep it minimized as below:
     document.addEventListener('DOMContentLoaded', function() {
-      // Set app store links in hero section if they exist
-      if (document.getElementById('google-play-hero')) {
-        document.getElementById('google-play-hero').href = APP_CONSTANTS.ANDROID_APP;
-      }
-      if (document.getElementById('appstore-hero')) {
-        document.getElementById('appstore-hero').href = APP_CONSTANTS.IOS_APP;
-      }
-      
-      // Set article links
-      if (document.getElementById('invoice-app-link')) {
-        document.getElementById('invoice-app-link').href = APP_CONSTANTS.INVOICE_APP_PAGE;
-      }
-      if (document.getElementById('invoice-receipt-link')) {
-        document.getElementById('invoice-receipt-link').href = APP_CONSTANTS.INVOICE_RECEIPT_PAGE;
-      }
-      
-      // Set app store links in CTA section
-      if (document.getElementById('google-play-cta')) {
-        document.getElementById('google-play-cta').href = APP_CONSTANTS.ANDROID_APP;
-      }
-      if (document.getElementById('appstore-cta')) {
-        document.getElementById('appstore-cta').href = APP_CONSTANTS.IOS_APP;
-      }
+      // Any page-specific initializations can go here
     });
   </script>
 </body>

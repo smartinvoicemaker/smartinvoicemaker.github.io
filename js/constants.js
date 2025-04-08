@@ -1,5 +1,5 @@
 // Constants for shared links across the website
-const LINKS = {
+const APP_CONSTANTS = {
   // Main website URL
   WEBSITE_URL: 'https://ez-invoice.com/',
   
@@ -21,7 +21,7 @@ const LINKS = {
 };
 
 // Tutorial videos data
-const VIDEOS = [
+const TUTORIAL_VIDEOS = [
   // Getting Started Section
   {
     id: 'intro',
@@ -121,6 +121,14 @@ const VIDEOS = [
   }
 ];
 
-// Make constants available globally
-window.APP_CONSTANTS = LINKS;
-window.TUTORIAL_VIDEOS = VIDEOS;
+// Make constants available globally - using only one global variable to reduce pollution
+if (typeof window !== 'undefined') {
+  window.APP_CONSTANTS = APP_CONSTANTS;
+  window.TUTORIAL_VIDEOS = TUTORIAL_VIDEOS;
+  
+  // Add helper to easily handle paths for both root and subdirectory pages
+  window.getPath = function(path, isRootPath = !window.location.pathname.includes('/pages/')) {
+    if (!path) return '#';
+    return isRootPath ? path : path.replace('pages/', '');
+  };
+}

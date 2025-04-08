@@ -1,56 +1,71 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // Create the header element
-  const header = document.createElement('header');
-  header.className = 'bg-white fixed top-0 w-full z-50 shadow-sm';
+/**
+ * Renders the common header for all pages
+ * @param {boolean} isRootPath - Whether the current page is at the root path or in a subdirectory
+ * @returns {string} HTML content for the header
+ */
+function renderHeader(isRootPath = false) {
+  // Determine correct path prefix for assets and links
+  const pathPrefix = isRootPath ? './' : '../';
   
-  // Set the header content
-  header.innerHTML = `
-    <nav class="container mx-auto py-3">
-      <div class="flex items-center justify-between px-4 md:px-6">
-        <a href="#" class="flex items-center" id="main-logo-link">
-          <img src="./images/logo.png" alt="ezInvoice" class="h-10" width="60" height="50" id="header-logo" />
-        </a>
-        <div class="flex items-center">
-          <a href="./pages/tutorials.html" class="mr-6 text-dBlue hover:text-lGreen transition duration-150 ease-in hidden md:block">Tutorials</a>
-          <div class="flex items-center space-x-4">
-            <a href="#" class="transition hover:opacity-80" id="google-play-header">
-              <img src="./images/goolge-play.svg" alt="GooglePlay" id="google-play-img">
-            </a>
-            <a href="#" class="transition hover:opacity-80" id="appstore-header">
-              <img src="./images/apple-store.svg" alt="AppStore" id="appstore-img">
-            </a>
+  // Create the header HTML
+  const headerHTML = `
+    <header class="bg-white fixed top-0 w-full z-50 shadow-sm">
+      <nav class="container mx-auto py-3">
+        <div class="flex items-center justify-between px-4 md:px-6">
+          <a href="#" class="flex items-center" id="main-logo-link">
+            <img src="${pathPrefix}images/logo.png" alt="ezInvoice" class="h-10" width="60" height="50" id="header-logo" />
+          </a>
+          <div class="flex items-center">
+            <a href="${pathPrefix}pages/tutorials.html" class="mr-6 text-dBlue hover:text-lGreen transition duration-150 ease-in hidden md:block" id="tutorials-header-link">Tutorials</a>
+            <div class="flex items-center space-x-4">
+              <a href="#" class="transition hover:opacity-80" id="google-play-header">
+                <img src="${pathPrefix}images/goolge-play.svg" alt="GooglePlay" id="google-play-img">
+              </a>
+              <a href="#" class="transition hover:opacity-80" id="appstore-header">
+                <img src="${pathPrefix}images/apple-store.svg" alt="AppStore" id="appstore-img">
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   `;
+  
+  return headerHTML;
+}
 
-  // Insert the header at the beginning of the body
-  document.body.insertBefore(header, document.body.firstChild);
-  
-  // Apply constant URLs to header elements
-  document.getElementById('main-logo-link').href = APP_CONSTANTS.WEBSITE_URL || '#';
-  document.getElementById('google-play-header').href = APP_CONSTANTS.ANDROID_APP || '#';
-  document.getElementById('appstore-header').href = APP_CONSTANTS.IOS_APP || '#';
-  
-  // Update tutorials link if available in constants
-  const tutorialsLink = document.querySelector('a[href="./pages/tutorials.html"]');
-  if (tutorialsLink && APP_CONSTANTS.TUTORIALS_PAGE) {
-    tutorialsLink.href = APP_CONSTANTS.TUTORIALS_PAGE;
+// Make the component available globally
+if (typeof window !== 'undefined') {
+  window.renderHeader = renderHeader;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Check if header is already rendered by component-loader
+  if (document.getElementById('header-container')) {
+    return;
   }
+
+  // Create the header element
+  const header = document.createElement('div');
   
-  // Handle path corrections for nested pages
-  const currentPath = window.location.pathname;
-  if (currentPath.includes('/pages/')) {
-    // Adjust image paths for nested pages
-    document.getElementById('header-logo').src = "../images/logo.png";
-    document.getElementById('google-play-img').src = "../images/goolge-play.svg";
-    document.getElementById('appstore-img').src = "../images/apple-store.svg";
+  // Set the header content using our function
+  const isRootPath = !window.location.pathname.includes('/pages/');
+  header.innerHTML = renderHeader(isRootPath);
+  
+  // Insert the header at the beginning of the body
+  document.body.insertBefore(header.firstChild, document.body.firstChild);
+  
+  // Apply constant URLs to header elements if constants are available
+  if (window.APP_CONSTANTS) {
+    document.getElementById('main-logo-link').href = APP_CONSTANTS.WEBSITE_URL || (isRootPath ? './' : '../');
+    document.getElementById('google-play-header').href = APP_CONSTANTS.ANDROID_APP || '#';
+    document.getElementById('appstore-header').href = APP_CONSTANTS.IOS_APP || '#';
     
-    // Adjust link paths
-    const tutorialsLink = document.querySelector('header a[href="./pages/tutorials.html"]');
-    if (tutorialsLink) {
-      tutorialsLink.href = APP_CONSTANTS.TUTORIALS_PAGE || "./tutorials.html";
+    const tutorialsLink = document.getElementById('tutorials-header-link');
+    if (tutorialsLink && APP_CONSTANTS.TUTORIALS_PAGE) {
+      tutorialsLink.href = isRootPath ? 
+        APP_CONSTANTS.TUTORIALS_PAGE : 
+        (APP_CONSTANTS.TUTORIALS_PAGE.replace('pages/', '') || './tutorials.html');
     }
   }
 });
