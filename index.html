@@ -18,10 +18,14 @@
   <!-- Include components -->
   <script src="./components/header.js"></script>
   <script src="./components/footer.js"></script>
+  <script src="./components/component-loader.js"></script>
+  <!-- Add site.js to ensure components load properly -->
+  <script src="./js/site.js"></script>
 </head>
 
 <body class="font-pub bg-[#FAFAFA]">
-  <!-- Header is loaded via header.js -->
+  <!-- Header container - will be populated by JavaScript -->
+  <div id="header-container"></div>
 
   <!-- Hero Section -->
   <section class="relative bg-[#FAFAFA] mt-16 lg:mt-24 pb-10 py-12 lg:py-20 xl:py-24">
@@ -259,16 +263,8 @@
     </div>
   </section>
 
-  <!-- Footer is loaded via footer.js -->
-  
-  <script src="script.js"></script>
-  <script>
-    // This can be simplified - our component-loader now handles all the link updates
-    // You can remove this entire script block or keep it minimized as below:
-    document.addEventListener('DOMContentLoaded', function() {
-      // Any page-specific initializations can go here
-    });
-  </script>
+  <!-- Footer container - will be populated by JavaScript -->
+  <div id="footer-container"></div>
 </body>
 
 </html>

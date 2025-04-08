@@ -39,33 +39,52 @@ if (typeof window !== 'undefined') {
   window.renderHeader = renderHeader;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  // Check if header is already rendered by component-loader
+// Create a function to insert the header
+function insertHeader() {
+  // Don't insert if already handled by component-loader
   if (document.getElementById('header-container')) {
+    // If header-container exists but is empty, fill it
+    const headerContainer = document.getElementById('header-container');
+    if (headerContainer.innerHTML.trim() === '') {
+      const isRootPath = !window.location.pathname.includes('/pages/');
+      headerContainer.innerHTML = renderHeader(isRootPath);
+    }
     return;
   }
 
-  // Create the header element
-  const header = document.createElement('div');
-  
-  // Set the header content using our function
+  // Create and insert the header directly
   const isRootPath = !window.location.pathname.includes('/pages/');
-  header.innerHTML = renderHeader(isRootPath);
+  const headerElement = document.createElement('div');
+  headerElement.innerHTML = renderHeader(isRootPath);
   
-  // Insert the header at the beginning of the body
-  document.body.insertBefore(header.firstChild, document.body.firstChild);
+  if (document.body.firstChild) {
+    document.body.insertBefore(headerElement.firstElementChild, document.body.firstChild);
+  } else {
+    document.body.appendChild(headerElement.firstElementChild);
+  }
   
-  // Apply constant URLs to header elements if constants are available
+  // Apply constant URLs if available
   if (window.APP_CONSTANTS) {
-    document.getElementById('main-logo-link').href = APP_CONSTANTS.WEBSITE_URL || (isRootPath ? './' : '../');
-    document.getElementById('google-play-header').href = APP_CONSTANTS.ANDROID_APP || '#';
-    document.getElementById('appstore-header').href = APP_CONSTANTS.IOS_APP || '#';
+    const mainLogoLink = document.getElementById('main-logo-link');
+    const googlePlayHeader = document.getElementById('google-play-header');
+    const appstoreHeader = document.getElementById('appstore-header');
+    const tutorialsHeaderLink = document.getElementById('tutorials-header-link');
     
-    const tutorialsLink = document.getElementById('tutorials-header-link');
-    if (tutorialsLink && APP_CONSTANTS.TUTORIALS_PAGE) {
-      tutorialsLink.href = isRootPath ? 
+    if (mainLogoLink) mainLogoLink.href = APP_CONSTANTS.WEBSITE_URL || (isRootPath ? './' : '../');
+    if (googlePlayHeader) googlePlayHeader.href = APP_CONSTANTS.ANDROID_APP || '#';
+    if (appstoreHeader) appstoreHeader.href = APP_CONSTANTS.IOS_APP || '#';
+    
+    if (tutorialsHeaderLink && APP_CONSTANTS.TUTORIALS_PAGE) {
+      tutorialsHeaderLink.href = isRootPath ? 
         APP_CONSTANTS.TUTORIALS_PAGE : 
         (APP_CONSTANTS.TUTORIALS_PAGE.replace('pages/', '') || './tutorials.html');
     }
   }
-});
+}
+
+// Use a more reliable way to ensure the DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', insertHeader);
+} else {
+  insertHeader();
+}

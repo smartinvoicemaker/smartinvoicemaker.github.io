@@ -34,25 +34,27 @@ if (typeof window !== 'undefined') {
   window.renderFooter = renderFooter;
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  // Check if footer is already rendered by component-loader
+// Create a function to insert the footer
+function insertFooter() {
+  // Don't insert if already handled by component-loader
   if (document.getElementById('footer-container')) {
+    // If footer-container exists but is empty, fill it
+    const footerContainer = document.getElementById('footer-container');
+    if (footerContainer.innerHTML.trim() === '') {
+      const isRootPath = !window.location.pathname.includes('/pages/');
+      footerContainer.innerHTML = renderFooter(isRootPath);
+    }
     return;
   }
 
-  // Create the footer element
-  const footer = document.createElement('footer');
-  footer.className = 'bg-[#1c2431] py-6';
-  
-  // Set the footer content using the existing renderFooter function
-  // This avoids code duplication
+  // Create and insert the footer directly
   const isRootPath = !window.location.pathname.includes('/pages/');
-  footer.innerHTML = renderFooter(isRootPath).trim().replace(/<\/?footer[^>]*>/g, '');
-
-  // Append the footer to the body
-  document.body.appendChild(footer);
-
-  // Apply constant URLs to footer links if constants are available
+  const footerElement = document.createElement('div');
+  footerElement.innerHTML = renderFooter(isRootPath);
+  
+  document.body.appendChild(footerElement.firstElementChild);
+  
+  // Apply constant URLs if available
   if (window.APP_CONSTANTS) {
     const tutorialsLink = document.getElementById('tutorials-link');
     const termsLink = document.getElementById('terms-link');
@@ -76,4 +78,11 @@ document.addEventListener('DOMContentLoaded', function() {
         (APP_CONSTANTS.PRIVACY_PAGE || './privacy.html');
     }
   }
-});
+}
+
+// Use a more reliable way to ensure the DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', insertFooter);
+} else {
+  insertFooter();
+}
