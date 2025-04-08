@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="container mx-auto px-4 md:px-6">
       <div class="flex flex-col md:flex-row items-center justify-between">
         <div class="flex items-center space-x-4 md:space-x-8">
-          <a href="./pages/tutorials.html" class="text-white hover:text-lGreen transition duration-150 ease-in text-sm md:text-base p-4">Tutorials</a>
+          <a href="./pages/tutorials.html" class="text-blue hover:text-lGreen transition duration-150 ease-in text-sm md:text-base p-4">Tutorials</a>
           <a href="./pages/terms.html" class="text-blue hover:text-lGreen transition duration-150 ease-in text-sm md:text-base p-4" id="terms-link">Terms</a>
           <a href="./pages/privacy.html" class="text-blue hover:text-lGreen transition duration-150 ease-in text-sm md:text-base" id="privacy-link">Privacy Policy</a>
         </div>
