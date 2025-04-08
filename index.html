@@ -25,13 +25,16 @@
         <a href="#" class="flex items-center" id="main-logo-link">
           <img src="./images/logo.png" alt="ezInvoice" class="h-10" width="60" height="50" id="header-logo" />
         </a>
-        <div class="flex items-center space-x-4">
-          <a href="#" class="transition hover:opacity-80" id="google-play-header">
-            <img src="./images/goolge-play.svg" alt="GooglePlay" id="google-play-img">
-          </a>
-          <a href="#" class="transition hover:opacity-80" id="appstore-header">
-            <img src="./images/apple-store.svg" alt="AppStore" id="appstore-img">
-          </a>
+        <div class="flex items-center">
+          <a href="./pages/tutorials.html" class="mr-6 text-dBlue hover:text-lGreen transition duration-150 ease-in hidden md:block">Tutorials</a>
+          <div class="flex items-center space-x-4">
+            <a href="#" class="transition hover:opacity-80" id="google-play-header">
+              <img src="./images/goolge-play.svg" alt="GooglePlay" id="google-play-img">
+            </a>
+            <a href="#" class="transition hover:opacity-80" id="appstore-header">
+              <img src="./images/apple-store.svg" alt="AppStore" id="appstore-img">
+            </a>
+          </div>
         </div>
       </div>
     </nav>
@@ -51,13 +54,6 @@
           </p>
         </div>
         <div class="w-full lg:w-1/2">
-            <!-- Mobile Hero -->
-            <div class="relative lg:hidden mt-12">
-            <img src="./images/bg-intro-mobile.svg" alt="" class="w-full" aria-hidden="true">
-            <img src="./images/image-mockups.png" alt="Phone mockup"
-              class="absolute top-0 mx-auto left-0 right-0 scale-90 md:scale-100" aria-hidden="true">
-            </div>
-          <!-- Desktop Hero -->
           <div class="hidden lg:block relative">
             <img src="./images/bg-intro-desktop.svg" alt=""
               class="w-full ml-48 xl:ml-52 -mt-20 xl:-mt-44 h-full scale-150" aria-hidden="true">
@@ -142,6 +138,79 @@
     </div>
   </section>
 
+  <!-- Tutorials Section (NEW) -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-dBlue mb-4">
+          Learn How to Use ezInvoice
+        </h2>
+        <p class="text-lg text-[#9698a6] mb-6">
+          Watch our step-by-step video tutorials to get the most out of our invoice maker app
+        </p>
+        <a href="./pages/tutorials.html" class="inline-block bg-gradient-to-r from-lGreen to-bCyan text-white font-bold py-3 px-6 rounded-full hover:opacity-90 transition-opacity">
+          View All Tutorials
+        </a>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Tutorial Preview 1 -->
+        <div class="bg-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+          <div class="relative pb-[56.25%]">
+            <img src="./images/tutorial-preview-1.jpg" alt="Getting Started Tutorial" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+              <a href="./pages/tutorials.html" class="bg-white bg-opacity-90 rounded-full w-14 h-14 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-dBlue" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-semibold text-lg mb-1">Getting Started</h3>
+            <p class="text-[#9698a6] text-sm">Learn the basics of creating your first invoice</p>
+          </div>
+        </div>
+        
+        <!-- Tutorial Preview 2 -->
+        <div class="bg-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+          <div class="relative pb-[56.25%]">
+            <img src="./images/tutorial-preview-2.jpg" alt="Advanced Features" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+              <a href="./pages/tutorials.html" class="bg-white bg-opacity-90 rounded-full w-14 h-14 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-dBlue" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-semibold text-lg mb-1">Advanced Features</h3>
+            <p class="text-[#9698a6] text-sm">Discover customization and reporting tools</p>
+          </div>
+        </div>
+        
+        <!-- Tutorial Preview 3 -->
+        <div class="bg-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+          <div class="relative pb-[56.25%]">
+            <img src="./images/tutorial-preview-3.jpg" alt="Tips and Tricks" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+              <a href="./pages/tutorials.html" class="bg-white bg-opacity-90 rounded-full w-14 h-14 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-dBlue" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="font-semibold text-lg mb-1">Tips and Tricks</h3>
+            <p class="text-[#9698a6] text-sm">Professional invoicing best practices</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Articles Section -->
   <section class="py-16 lg:py-20 bg-[#FAFAFA]">
     <div class="container mx-auto px-4 md:px-6">
@@ -212,6 +281,7 @@
     <div class="container mx-auto px-4 md:px-6">
       <div class="flex flex-col md:flex-row items-center justify-between">
         <div class="flex items-center space-x-4 md:space-x-8">
+          <a href="./pages/tutorials.html" class="text-white hover:text-lGreen transition duration-150 ease-in text-sm md:text-base p-4">Tutorials</a>
           <a href="./pages/terms.html" class="text-blue hover:text-lGreen transition duration-150 ease-in text-sm md:text-base p-4" id="terms-link">Terms</a>
           <a href="./pages/privacy.html" class="text-blue hover:text-lGreen transition duration-150 ease-in text-sm md:text-base" id="privacy-link">Privacy Policy</a>
         </div>
@@ -249,6 +319,11 @@
       // Set footer links
       document.getElementById('terms-link').href = APP_CONSTANTS.TERMS_PAGE;
       document.getElementById('privacy-link').href = APP_CONSTANTS.PRIVACY_PAGE;
+
+      // Add tutorials link to constants application
+      document.querySelectorAll('a[href="./pages/tutorials.html"]').forEach(link => {
+        link.href = APP_CONSTANTS.TUTORIALS_PAGE || './pages/tutorials.html';
+      });
     });
   </script>
 </body>
