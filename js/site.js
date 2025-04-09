@@ -1,14 +1,50 @@
 /**
- * Main site JavaScript - ensures all components load properly
+ * Main site JavaScript - ensures all components load properly without duplication
  */
 
-// Helper function to check for component elements
-function ensureComponentsLoaded() {
-  // Wait for constants to be available
-  if (!window.APP_CONSTANTS) {
-    setTimeout(ensureComponentsLoaded, 100);
-    return;
+// Track loaded scripts to prevent duplicates
+const loadedScripts = new Set();
+
+// Function to dynamically load scripts
+function loadScript(url) {
+  if (loadedScripts.has(url)) {
+    return Promise.resolve(); // Already loaded
   }
+  
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = url;
+    script.onload = () => {
+      loadedScripts.add(url);
+      resolve();
+    };
+    script.onerror = reject;
+    document.head.appendChild(script);
+  });
+}
+
+// Load required component scripts in the correct order
+async function loadComponents() {
+  const isRootPath = !window.location.pathname.includes('/pages/');
+  const pathPrefix = isRootPath ? './' : '../';
+  
+  try {
+    // Load component scripts in sequence to maintain dependency order
+    await loadScript(`${pathPrefix}components/header.js`);
+    await loadScript(`${pathPrefix}components/footer.js`);
+    await loadScript(`${pathPrefix}components/component-loader.js`);
+    
+    // Initialize components once all scripts are loaded
+    initializeComponents();
+  } catch (error) {
+    console.error('Error loading component scripts:', error);
+  }
+}
+
+// Function to initialize components
+function initializeComponents() {
+  // Helper function to check for component elements
+  const isRootPath = !window.location.pathname.includes('/pages/');
   
   // Check if header exists, if not, insert it
   let header = document.querySelector('header');
@@ -17,16 +53,8 @@ function ensureComponentsLoaded() {
       window.insertHeader();
     } else {
       // Fallback if insertHeader is not available
-      const headerContainer = document.getElementById('header-container') || 
-        document.createElement('div');
-      
-      if (!document.getElementById('header-container')) {
-        headerContainer.id = 'header-container';
-        document.body.insertBefore(headerContainer, document.body.firstChild);
-      }
-      
-      if (typeof window.renderHeader === 'function') {
-        const isRootPath = !window.location.pathname.includes('/pages/');
+      const headerContainer = document.getElementById('header-container');
+      if (headerContainer && typeof window.renderHeader === 'function') {
         headerContainer.innerHTML = window.renderHeader(isRootPath);
       }
     }
@@ -39,35 +67,18 @@ function ensureComponentsLoaded() {
       window.insertFooter();
     } else {
       // Fallback if insertFooter is not available
-      const footerContainer = document.getElementById('footer-container') || 
-        document.createElement('div');
-      
-      if (!document.getElementById('footer-container')) {
-        footerContainer.id = 'footer-container';
-        document.body.appendChild(footerContainer);
-      }
-      
-      if (typeof window.renderFooter === 'function') {
-        const isRootPath = !window.location.pathname.includes('/pages/');
+      const footerContainer = document.getElementById('footer-container');
+      if (footerContainer && typeof window.renderFooter === 'function') {
         footerContainer.innerHTML = window.renderFooter(isRootPath);
       }
     }
   }
   
-  // Update links
+  // Update links if component-loader exists
   if (typeof window.loadComponents === 'function') {
     window.loadComponents();
   }
 }
 
-// Ensure components are loaded
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', ensureComponentsLoaded);
-} else {
-  ensureComponentsLoaded();
-}
-
-// Add an extra check after window load
-window.addEventListener('load', function() {
-  setTimeout(ensureComponentsLoaded, 100);
-});
+// Start loading components
+document.addEventListener('DOMContentLoaded', loadComponents);

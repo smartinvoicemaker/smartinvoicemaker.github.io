@@ -183,6 +183,12 @@
         
         // Function to generate tutorial sections based on videos data
         function generateTutorialSections() {
+            // Check if sections already generated to avoid duplication
+            if (document.querySelector('#tutorial-sections-container .section-divider')) {
+                console.log('Tutorial sections already generated, skipping...');
+                return;
+            }
+            
             if (!window.TUTORIAL_VIDEOS) {
                 console.error('Tutorial videos data not found!');
                 return;
@@ -255,14 +261,23 @@
         
         // Initialize the page when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
-            // Generate tutorial sections from constants.js data
+            // Generate tutorial sections from constants.js data once
             generateTutorialSections();
             
-            // Update app links from constants
-            if (window.APP_CONSTANTS) {
-                document.getElementById('main-logo-link').href = window.APP_CONSTANTS.WEBSITE_URL || '../index.html';
-                document.getElementById('google-play-header').href = window.APP_CONSTANTS.ANDROID_APP;
-                document.getElementById('appstore-header').href = window.APP_CONSTANTS.IOS_APP;
+            // Use component-loader.js for updating app links
+            if (typeof window.loadComponents === 'function') {
+                window.loadComponents();
+            } else {
+                // Fallback if component loader is not available
+                if (window.APP_CONSTANTS) {
+                    document.querySelectorAll('a[href*="bit.ly/invoice_maker_android"]').forEach(link => {
+                        link.href = window.APP_CONSTANTS.ANDROID_APP;
+                    });
+                    
+                    document.querySelectorAll('a[href*="bit.ly/invoice-maker-ios"]').forEach(link => {
+                        link.href = window.APP_CONSTANTS.IOS_APP;
+                    });
+                }
             }
         });
     </script>
