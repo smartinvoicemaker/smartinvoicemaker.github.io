@@ -135,66 +135,67 @@
         <p class="text-lg text-[#9698a6] mb-6">
           Watch our step-by-step video tutorials to get the most out of our invoice maker app
         </p>
-        <a href="./pages/tutorials.html" class="inline-block bg-gradient-to-r from-lGreen to-bCyan text-white font-bold py-3 px-6 rounded-full hover:opacity-90 transition-opacity">
-          View All Tutorials
-        </a>
       </div>
       
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- Tutorial Preview 1 -->
-        <div class="bg-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-          <div class="relative pb-[56.25%]">
-            <img src="./images/tutorial-preview-1.jpg" alt="Getting Started Tutorial" class="absolute inset-0 w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-              <a href="./pages/tutorials.html" class="bg-white bg-opacity-90 rounded-full w-14 h-14 flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-dBlue" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                </svg>
-              </a>
-            </div>
-          </div>
-          <div class="p-4">
-            <h3 class="font-semibold text-lg mb-1">Getting Started</h3>
-            <p class="text-[#9698a6] text-sm">Learn the basics of creating your first invoice</p>
-          </div>
-        </div>
-        
-        <!-- Tutorial Preview 2 -->
-        <div class="bg-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-          <div class="relative pb-[56.25%]">
-            <img src="./images/tutorial-preview-2.jpg" alt="Advanced Features" class="absolute inset-0 w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-              <a href="./pages/tutorials.html" class="bg-white bg-opacity-90 rounded-full w-14 h-14 flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-dBlue" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                </svg>
-              </a>
-            </div>
-          </div>
-          <div class="p-4">
-            <h3 class="font-semibold text-lg mb-1">Advanced Features</h3>
-            <p class="text-[#9698a6] text-sm">Discover customization and reporting tools</p>
-          </div>
-        </div>
-        
-        <!-- Tutorial Preview 3 -->
-        <div class="bg-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-          <div class="relative pb-[56.25%]">
-            <img src="./images/tutorial-preview-3.jpg" alt="Tips and Tricks" class="absolute inset-0 w-full h-full object-cover">
-            <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-              <a href="./pages/tutorials.html" class="bg-white bg-opacity-90 rounded-full w-14 h-14 flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-dBlue" viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
-                </svg>
-              </a>
-            </div>
-          </div>
-          <div class="p-4">
-            <h3 class="font-semibold text-lg mb-1">Tips and Tricks</h3>
-            <p class="text-[#9698a6] text-sm">Professional invoicing best practices</p>
-          </div>
-        </div>
+      <div class="grid md:grid-cols-3 gap-8" id="tutorials-container">
+        <!-- Tutorials will be loaded dynamically from JavaScript -->
       </div>
+
+      <script>
+        // Tutorial data array
+        const tutorialItems = [
+          {
+            image: "./images/tutorial-preview-1.jpg",
+            title: "Getting Started",
+            description: "Learn the basics of creating your first invoice",
+            alt: "Getting Started Tutorial"
+          },
+          {
+            image: "./images/tutorial-preview-2.jpg",
+            title: "Advanced Features",
+            description: "Discover customization and reporting tools",
+            alt: "Advanced Features"
+          },
+          {
+            image: "./images/tutorial-preview-3.jpg",
+            title: "Tips and Tricks",
+            description: "Professional invoicing best practices",
+            alt: "Tips and Tricks"
+          }
+        ];
+        
+        // Function to render tutorials
+        function renderTutorials() {
+          const container = document.getElementById('tutorials-container');
+          
+          tutorialItems.forEach(item => {
+            const tutorialElement = document.createElement('div');
+            tutorialElement.className = 'bg-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow';
+            tutorialElement.innerHTML = `
+              <a href="./pages/tutorials.html" class="block transition-transform hover:scale-[1.02]">
+              <div class="relative pb-[56.25%]">
+                <img src="${item.image}" alt="${item.alt}" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+                <div class="bg-white bg-opacity-90 rounded-full w-14 h-14 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-dBlue" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                </div>
+              </div>
+              <div class="p-4">
+                <h3 class="font-semibold text-lg mb-1">${item.title}</h3>
+                <p class="text-[#9698a6] text-sm">${item.description}</p>
+              </div>
+              </a>
+            `;
+            container.appendChild(tutorialElement);
+          });
+        }
+        
+        // Execute the render function when DOM is loaded
+        document.addEventListener('DOMContentLoaded', renderTutorials);
+      </script>
     </div>
   </section>
 
@@ -218,19 +219,6 @@
 
   <!-- Footer container - will be populated by JavaScript -->
   <div id="footer-container"></div>
-
-  <!-- Backup script to ensure footer loads -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Check if footer exists after 500ms
-      setTimeout(function() {
-        if (!document.querySelector('footer') && window.insertFooter) {
-          console.log('Footer not detected, attempting to insert via backup');
-          window.insertFooter();
-        }
-      }, 500);
-    });
-  </script>
 </body>
 
 </html>

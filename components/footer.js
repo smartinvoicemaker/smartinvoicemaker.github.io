@@ -9,23 +9,21 @@ function renderFooter(isRootPath = false) {
   
   // Create the footer HTML
   const footerHTML = `
-    <footer class="bg-[#1c2431] py-6 text-white">
-      <div class="container mx-auto px-4 md:px-6">
-        <div class="flex flex-col md:flex-row items-center justify-between">
-          <div class="flex items-center space-x-4 md:space-x-8">
-            <a href="${pathPrefix}pages/tutorials.html" class="text-white hover:text-lGreen transition duration-150 ease-in text-sm md:text-base" id="tutorials-link">Tutorials</a>
-            <a href="${pathPrefix}pages/terms.html" class="text-white hover:text-lGreen transition duration-150 ease-in text-sm md:text-base" id="terms-link">Terms</a>
-            <a href="${pathPrefix}pages/privacy.html" class="text-white hover:text-lGreen transition duration-150 ease-in text-sm md:text-base" id="privacy-link">Privacy Policy</a>
+    <footer class="bg-[#1c2431] py-12 text-blue-50">
+      <div class="container mx-auto px-6 md:px-8">
+        <div class="flex flex-col md:flex-row items-center justify-between md:space-y-0 space-y-6">
+          <div class="flex items-center space-x-4 md:space-x-6 my-4">
+            <a href="${pathPrefix}pages/tutorials.html" class="text-lGreen hover:text-lGreen transition duration-150 ease-in text-sm md:text-base px-3" id="tutorials-link">Tutorials</a>
+            <a href="${pathPrefix}pages/terms.html" class="text-lGreen hover:text-lGreen transition duration-150 ease-in text-sm md:text-base px-3" id="terms-link">Terms</a>
+            <a href="${pathPrefix}pages/privacy.html" class="text-lGreen hover:text-lGreen transition duration-150 ease-in text-sm md:text-base px-3" id="privacy-link">Privacy Policy</a>
           </div>
-          
-          <p class="text-gray-400 text-sm mt-4 md:mt-0">
+          <p class="text-gray-400 text-sm mt-6 md:mt-0 py-3">
             © ezInvoice. All Rights Reserved
           </p>
         </div>
       </div>
     </footer>
   `;
-  
   return footerHTML;
 }
 
