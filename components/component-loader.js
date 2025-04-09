@@ -52,11 +52,26 @@ function loadComponents() {
     updateElementHref('invoice-app-link', APP_CONSTANTS.INVOICE_APP_PAGE);
     updateElementHref('invoice-receipt-link', APP_CONSTANTS.INVOICE_RECEIPT_PAGE);
   }
+  
+  // Additional check to ensure footer is inserted if not already present
+  if (footerContainer && !footerContainer.querySelector('footer') && window.renderFooter) {
+    console.log('Ensuring footer is inserted');
+    footerContainer.innerHTML = renderFooter(isRootPath);
+  }
 }
 
 // Make the function globally available
 if (typeof window !== 'undefined') {
   window.loadComponents = loadComponents;
+  
+  // Function to explicitly insert footer
+  window.insertFooter = function() {
+    const footerContainer = document.getElementById('footer-container');
+    if (footerContainer && window.renderFooter) {
+      const isRootPath = !window.location.pathname.includes('/pages/');
+      footerContainer.innerHTML = renderFooter(isRootPath);
+    }
+  };
   
   // Run as soon as possible
   if (document.readyState === 'loading') {

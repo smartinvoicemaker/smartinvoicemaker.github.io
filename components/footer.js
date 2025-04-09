@@ -36,6 +36,9 @@ if (typeof window !== 'undefined') {
 
 // Create a function to insert the footer
 function insertFooter() {
+  // Add debugging to help track execution
+  console.log('Attempting to insert footer');
+  
   // Don't insert if already handled by component-loader
   if (document.getElementById('footer-container')) {
     // If footer-container exists but is empty, fill it
@@ -43,6 +46,9 @@ function insertFooter() {
     if (footerContainer.innerHTML.trim() === '') {
       const isRootPath = !window.location.pathname.includes('/pages/');
       footerContainer.innerHTML = renderFooter(isRootPath);
+      console.log('Footer container found empty, filled it');
+    } else {
+      console.log('Footer container already has content');
     }
     return;
   }
@@ -53,6 +59,7 @@ function insertFooter() {
   footerElement.innerHTML = renderFooter(isRootPath);
   
   document.body.appendChild(footerElement.firstElementChild);
+  console.log('Footer inserted directly into body');
   
   // Apply constant URLs if available
   if (window.APP_CONSTANTS) {
@@ -80,9 +87,29 @@ function insertFooter() {
   }
 }
 
-// Use a more reliable way to ensure the DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', insertFooter);
-} else {
-  insertFooter();
+// More reliable DOM ready handling
+function ensureFooterInserted() {
+  // If body exists, we can insert the footer
+  if (document.body) {
+    insertFooter();
+  } else {
+    // If body doesn't exist yet, wait a bit and try again
+    setTimeout(ensureFooterInserted, 100);
+  }
 }
+
+// Use a more comprehensive approach to ensure the DOM is ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', ensureFooterInserted);
+} else {
+  ensureFooterInserted();
+}
+
+// Add a fallback to ensure the footer appears even if other events fail
+window.addEventListener('load', function() {
+  // Double check if footer exists, if not insert it
+  if (!document.querySelector('footer')) {
+    console.log('Footer not found on load event, inserting now');
+    insertFooter();
+  }
+});

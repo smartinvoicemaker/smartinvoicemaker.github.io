@@ -14,10 +14,13 @@
   <meta name="description"
     content="Make professional invoices effortlessly with our Invoice Maker app. Simplify your billing process and present your business in the best light. Get started today!">
   
-  <!-- Single unified script loading strategy to prevent duplication -->
+  <!-- Load constants and components first -->
   <script src="./js/constants.js"></script>
+  <script src="./components/header.js"></script>
+  <script src="./components/footer.js"></script>
+  <script src="./components/component-loader.js"></script>
+  <!-- Then site.js which might use the components -->
   <script src="./js/site.js" defer></script>
-  <!-- Component scripts loaded by site.js -->
 </head>
 
 <body class="font-pub bg-[#FAFAFA]">
@@ -262,6 +265,19 @@
 
   <!-- Footer container - will be populated by JavaScript -->
   <div id="footer-container"></div>
+
+  <!-- Backup script to ensure footer loads -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Check if footer exists after 500ms
+      setTimeout(function() {
+        if (!document.querySelector('footer') && window.insertFooter) {
+          console.log('Footer not detected, attempting to insert via backup');
+          window.insertFooter();
+        }
+      }, 500);
+    });
+  </script>
 </body>
 
 </html>
