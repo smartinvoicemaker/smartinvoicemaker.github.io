@@ -44,31 +44,31 @@ const TUTORIAL_VIDEOS = [
   
   // Creating & Managing Invoices Section
   {
-    id: 'first-invoice',
+    id: 'excel-import',
     section: 'Creating & Managing Invoices',
-    title: 'Creating Your First Invoice',
-    description: 'Step-by-step guide to creating a professional invoice, including adding items, setting quantities and prices, and applying taxes.',
-    youtubeId: '9CVmrKbg3Kk',
-    duration: '5:38',
-    level: 'Beginner'
-  },
-  {
-    id: 'customers',
-    section: 'Creating & Managing Invoices',
-    title: 'Managing Customers and Products',
-    description: 'Learn how to create and manage your customer database and product catalog to streamline your invoice creation process.',
+    title: 'Importing Customers and Products from Excel',
+    description: 'Learn how to quickly import your existing customer database and product catalog from Excel files to save time on manual data entry.',
     youtubeId: 'JYT-LY9JZQ8',
-    duration: '4:56',
+    duration: '5:24',
     level: 'Intermediate'
   },
   {
-    id: 'tracking',
+    id: 'excel-export',
     section: 'Creating & Managing Invoices',
-    title: 'Invoice Tracking and Payment Status',
-    description: 'Discover how to track invoice payments, mark invoices as paid, partially paid or overdue, and manage your cash flow effectively.',
+    title: 'Exporting Business Data to Excel',
+    description: 'Discover how to export your customers, products, and invoice data to Excel for backup purposes or further analysis in spreadsheet software.',
     youtubeId: 'wHbGc2jTVTc',
-    duration: '6:22',
+    duration: '4:18',
     level: 'Intermediate'
+  },
+  {
+    id: 'excel-templates',
+    section: 'Creating & Managing Invoices',
+    title: 'Using Excel Templates for Bulk Operations',
+    description: 'Master the use of Excel templates to perform bulk operations like updating multiple products or customer records at once.',
+    youtubeId: '9CVmrKbg3Kk',
+    duration: '6:05',
+    level: 'Advanced'
   },
   
   // Advanced Features Section
