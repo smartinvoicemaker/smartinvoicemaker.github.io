@@ -36,7 +36,7 @@ const TUTORIAL_VIDEOS = [
   // Creating & Managing Invoices Section
   {
     id: 'excel-import',
-    section: 'Managing Invoices',
+    section: 'Creating & Managing Invoices',
     title: 'Importing Customers and Products from Excel',
     description: 'Learn how to quickly import your existing customer database and product catalog from Excel files to save time on manual data entry.',
     youtubeId: '87P6RkC8HGk',

@@ -36,11 +36,20 @@ const TUTORIAL_VIDEOS = [
   // Creating & Managing Invoices Section
   {
     id: 'excel-import',
-    section: 'Managing Invoices',
+    section: 'Creating & Managing Invoices',
     title: 'Importing Customers and Products from Excel',
     description: 'Learn how to quickly import your existing customer database and product catalog from Excel files to save time on manual data entry.',
-    youtubeId: '87P6RkC8HGk',
+    youtubeId: 'JYT-LY9JZQ8',
     duration: '5:24',
+    level: 'Intermediate'
+  },
+  {
+    id: 'excel-export',
+    section: 'Creating & Managing Invoices',
+    title: 'Exporting Business Data to Excel',
+    description: 'Discover how to export your customers, products, and invoice data to Excel for backup purposes or further analysis in spreadsheet software.',
+    youtubeId: '',
+    duration: '4:18',
     level: 'Intermediate'
   },
   
@@ -50,7 +59,7 @@ const TUTORIAL_VIDEOS = [
     section: 'Advanced Features',
     title: 'Customizing Invoice Templates',
     description: 'Learn how to customize invoice templates with your brand colors, logo, and personalized text to make your invoices stand out.',
-    youtubeId: '6tfEowsr6wc',
+    youtubeId: 'xOHZT-ZOwgw',
     duration: '7:14',
     level: 'Advanced'
   },
@@ -59,7 +68,7 @@ const TUTORIAL_VIDEOS = [
     section: 'Advanced Features',
     title: 'Generating Reports and Analytics',
     description: 'Discover how to generate financial reports, analyze your sales data, and gain insights into your business performance.',
-    youtubeId: '0w2aU7Omw5Y',
+    youtubeId: 'M3SrVl7yZSs',
     duration: '8:05',
     level: 'Advanced'
   },

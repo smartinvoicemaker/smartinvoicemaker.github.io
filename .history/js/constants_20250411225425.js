@@ -26,22 +26,49 @@ const TUTORIAL_VIDEOS = [
   {
     id: 'intro',
     section: 'Getting Started',
-    title: 'Creating Your First Invoice',
-    description: 'Learn how to create your first invoice quickly and easily with ezInvoice in just a few simple steps.',
-    youtubeId: '11a8RPN_cio',
+    title: 'Introduction to ezInvoice',
+    description: 'Get familiar with the ezInvoice app interface and learn about its main features and benefits for your business.',
+    youtubeId: 'b_Xz7lHt0Y8',
     duration: '3:45',
+    level: 'Beginner'
+  },
+  {
+    id: 'setup',
+    section: 'Getting Started',
+    title: 'Setting Up Your Business Profile',
+    description: 'Learn how to set up your business profile with your logo, contact information, and payment details to create professional invoices.',
+    youtubeId: 'IfHjdJaO5iQ',
+    duration: '4:12',
     level: 'Beginner'
   },
   
   // Creating & Managing Invoices Section
   {
     id: 'excel-import',
-    section: 'Managing Invoices',
+    section: 'Creating & Managing Invoices',
     title: 'Importing Customers and Products from Excel',
     description: 'Learn how to quickly import your existing customer database and product catalog from Excel files to save time on manual data entry.',
-    youtubeId: '87P6RkC8HGk',
+    youtubeId: 'JYT-LY9JZQ8',
     duration: '5:24',
     level: 'Intermediate'
+  },
+  {
+    id: 'excel-export',
+    section: 'Creating & Managing Invoices',
+    title: 'Exporting Business Data to Excel',
+    description: 'Discover how to export your customers, products, and invoice data to Excel for backup purposes or further analysis in spreadsheet software.',
+    youtubeId: 'wHbGc2jTVTc',
+    duration: '4:18',
+    level: 'Intermediate'
+  },
+  {
+    id: 'excel-templates',
+    section: 'Creating & Managing Invoices',
+    title: 'Using Excel Templates for Bulk Operations',
+    description: 'Master the use of Excel templates to perform bulk operations like updating multiple products or customer records at once.',
+    youtubeId: '9CVmrKbg3Kk',
+    duration: '6:05',
+    level: 'Advanced'
   },
   
   // Advanced Features Section
@@ -50,7 +77,7 @@ const TUTORIAL_VIDEOS = [
     section: 'Advanced Features',
     title: 'Customizing Invoice Templates',
     description: 'Learn how to customize invoice templates with your brand colors, logo, and personalized text to make your invoices stand out.',
-    youtubeId: '6tfEowsr6wc',
+    youtubeId: 'xOHZT-ZOwgw',
     duration: '7:14',
     level: 'Advanced'
   },
@@ -59,7 +86,7 @@ const TUTORIAL_VIDEOS = [
     section: 'Advanced Features',
     title: 'Generating Reports and Analytics',
     description: 'Discover how to generate financial reports, analyze your sales data, and gain insights into your business performance.',
-    youtubeId: '0w2aU7Omw5Y',
+    youtubeId: 'M3SrVl7yZSs',
     duration: '8:05',
     level: 'Advanced'
   },
