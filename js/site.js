@@ -25,14 +25,11 @@ function loadScript(url) {
 
 // Load required component scripts in the correct order
 async function loadComponents() {
-  const isRootPath = !window.location.pathname.includes('/pages/');
-  const pathPrefix = isRootPath ? './' : '../';
-  
   try {
     // Load component scripts in sequence to maintain dependency order
-    await loadScript(`${pathPrefix}components/header.js`);
-    await loadScript(`${pathPrefix}components/footer.js`);
-    await loadScript(`${pathPrefix}components/component-loader.js`);
+    await loadScript('./components/header.js');
+    await loadScript('./components/footer.js');
+    await loadScript('./components/component-loader.js');
     
     // Initialize components once all scripts are loaded
     initializeComponents();
@@ -44,7 +41,6 @@ async function loadComponents() {
 // Function to initialize components
 function initializeComponents() {
   // Helper function to check for component elements
-  const isRootPath = !window.location.pathname.includes('/pages/');
   
   // Check if header exists, if not, insert it
   let header = document.querySelector('header');
@@ -55,7 +51,7 @@ function initializeComponents() {
       // Fallback if insertHeader is not available
       const headerContainer = document.getElementById('header-container');
       if (headerContainer && typeof window.renderHeader === 'function') {
-        headerContainer.innerHTML = window.renderHeader(isRootPath);
+        headerContainer.innerHTML = window.renderHeader();
       }
     }
   }
@@ -69,7 +65,7 @@ function initializeComponents() {
       // Fallback if insertFooter is not available
       const footerContainer = document.getElementById('footer-container');
       if (footerContainer && typeof window.renderFooter === 'function') {
-        footerContainer.innerHTML = window.renderFooter(isRootPath);
+        footerContainer.innerHTML = window.renderFooter();
       }
     }
   }

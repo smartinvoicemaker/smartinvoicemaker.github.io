@@ -8,11 +8,11 @@ const APP_CONSTANTS = {
   IOS_APP: 'https://apps.apple.com/app/ezinvoice-easy-invoice-maker/id6478380167',
   
   // Page links
-  TERMS_PAGE: 'pages/terms.html',
-  PRIVACY_PAGE: 'pages/privacy.html',
-  INVOICE_APP_PAGE: 'pages/best-invoice-app.html',
-  INVOICE_RECEIPT_PAGE: 'pages/invoice-recipt.html',
-  TUTORIALS_PAGE: 'pages/tutorials.html',
+  TERMS_PAGE: 'terms.html',
+  PRIVACY_PAGE: 'privacy.html',
+  INVOICE_APP_PAGE: 'best-invoice-app.html',
+  INVOICE_RECEIPT_PAGE: 'invoice-recipt.html',
+  TUTORIALS_PAGE: 'tutorials.html',
   
   // Image paths
   LOGO: './images/logo.png',
@@ -69,10 +69,4 @@ const TUTORIAL_VIDEOS = [
 if (typeof window !== 'undefined') {
   window.APP_CONSTANTS = APP_CONSTANTS;
   window.TUTORIAL_VIDEOS = TUTORIAL_VIDEOS;
-  
-  // Add helper to easily handle paths for both root and subdirectory pages
-  window.getPath = function(path, isRootPath = !window.location.pathname.includes('/pages/')) {
-    if (!path) return '#';
-    return isRootPath ? path : path.replace('pages/', '');
-  };
 }

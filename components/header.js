@@ -9,7 +9,7 @@ function renderHeader() {
       <nav class="container mx-auto py-3">
         <div class="flex items-center justify-between px-4 md:px-6">
           <a href="./" class="flex items-center" id="main-logo-link">
-            <img src="./images/logo.png" alt="ezInvoice" class="h-10" width="60" height="50" id="header-logo" />
+            <img src="./images/logo.png" alt="ezInvoice" class="h-10" width="50" height="50" id="header-logo" />
           </a>
           
           <!-- Desktop Navigation -->
