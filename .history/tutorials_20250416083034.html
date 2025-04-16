@@ -12,69 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;700&display=swap" rel="stylesheet" />
     <!-- Include constants.js first -->
     <script src="./js/constants.js"></script>
-    <script>
-        // Sample tutorial video data if not provided by constants.js
-        if (!window.TUTORIAL_VIDEOS) {
-            window.TUTORIAL_VIDEOS = [
-                {
-                    section: "Getting Started",
-                    title: "Creating Your First Invoice",
-                    description: "Learn how to create, customize, and send your first invoice within minutes.",
-                    youtubeId: "dQw4w9WgXcQ", // Placeholder - replace with actual ID
-                    duration: "3:45",
-                    level: "Beginner"
-                },
-                {
-                    section: "Getting Started",
-                    title: "Setting Up Your Business Profile",
-                    description: "Customize your business information, logo, and payment details for professional invoices.",
-                    youtubeId: "dQw4w9WgXcQ", // Placeholder - replace with actual ID
-                    duration: "4:20",
-                    level: "Beginner"
-                },
-                {
-                    section: "Advanced Features",
-                    title: "Customizing Invoice Templates",
-                    description: "Learn how to personalize your invoice templates with custom fields, colors, and layouts.",
-                    youtubeId: "dQw4w9WgXcQ", // Placeholder - replace with actual ID
-                    duration: "5:15",
-                    level: "Intermediate"
-                },
-                {
-                    section: "Advanced Features",
-                    title: "Managing Client Database",
-                    description: "Organize your clients, save their information, and quickly create invoices for repeat customers.",
-                    youtubeId: "dQw4w9WgXcQ", // Placeholder - replace with actual ID
-                    duration: "6:30",
-                    level: "Intermediate"
-                },
-                {
-                    section: "Advanced Features",
-                    title: "Creating Recurring Invoices",
-                    description: "Set up automatic recurring invoices for regular clients and subscription services.",
-                    youtubeId: "dQw4w9WgXcQ", // Placeholder - replace with actual ID
-                    duration: "4:50",
-                    level: "Advanced"
-                },
-                {
-                    section: "Tips and Tricks",
-                    title: "Getting Paid Faster",
-                    description: "Learn strategies and features that help you get paid more quickly by your clients.",
-                    youtubeId: "dQw4w9WgXcQ", // Placeholder - replace with actual ID
-                    duration: "7:10",
-                    level: "All Levels"
-                },
-                {
-                    section: "Tips and Tricks",
-                    title: "Mobile Invoicing on the Go",
-                    description: "Maximize productivity by creating and sending invoices from anywhere using your smartphone.",
-                    youtubeId: "dQw4w9WgXcQ", // Placeholder - replace with actual ID
-                    duration: "3:55",
-                    level: "All Levels"
-                }
-            ];
-        }
-    </script>
     <!-- Include component scripts -->
     <script src="./components/header.js"></script>
     <script src="./components/footer.js"></script>
@@ -252,10 +189,8 @@
                 return;
             }
             
-            if (!window.TUTORIAL_VIDEOS || !Array.isArray(window.TUTORIAL_VIDEOS)) {
-                console.error('Tutorial videos data not found or not an array!');
-                // Fallback to empty array to prevent errors
-                window.TUTORIAL_VIDEOS = [];
+            if (!window.TUTORIAL_VIDEOS) {
+                console.error('Tutorial videos data not found!');
                 return;
             }
             
@@ -264,8 +199,6 @@
             
             // Get unique section names
             const sections = [...new Set(videos.map(video => video.section))];
-            
-            console.log('Generating sections for:', sections);
             
             // Generate HTML for each section
             sections.forEach(section => {
@@ -295,14 +228,11 @@
                 
                 // Generate cards for videos in this section
                 sectionVideos.forEach(video => {
-                    // Ensure YouTube ID exists
-                    const youtubeId = video.youtubeId || 'dQw4w9WgXcQ'; // Fallback ID if missing
-                    
                     const videoCard = document.createElement('div');
                     videoCard.className = 'bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md tutorial-card';
                     videoCard.innerHTML = `
                         <div class="video-container">
-                            <iframe src="https://www.youtube.com/embed/${youtubeId}" 
+                            <iframe src="https://www.youtube.com/embed/${video.youtubeId}" 
                                 title="${video.title}" 
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -327,13 +257,10 @@
                 sectionEl.appendChild(videosContainer);
                 container.appendChild(sectionEl);
             });
-            
-            console.log('Tutorial sections generated successfully');
         }
         
         // Initialize the page when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('DOM loaded, generating tutorial sections');
             // Generate tutorial sections from constants.js data once
             generateTutorialSections();
             
@@ -341,7 +268,6 @@
             if (typeof window.loadComponents === 'function') {
                 window.loadComponents();
             } else {
-                console.warn('Component loader not available, using fallback');
                 // Fallback if component loader is not available
                 if (window.APP_CONSTANTS) {
                     document.querySelectorAll('a[href*="bit.ly/invoice_maker_android"]').forEach(link => {

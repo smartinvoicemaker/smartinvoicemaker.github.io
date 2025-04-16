@@ -1,17 +1,21 @@
 /**
  * Renders the common footer for all pages
+ * @param {boolean} isRootPath - Whether the current page is at the root path or in a subdirectory
  * @returns {string} HTML content for the footer
  */
-function renderFooter() {
-  // Create the footer HTML with direct paths since all pages are at the same level
+function renderFooter(isRootPath = false) {
+  // Determine correct path prefix for assets and links
+  const pathPrefix = isRootPath ? './' : '../';
+  
+  // Create the footer HTML
   const footerHTML = `
     <footer class="bg-[#1c2431] py-12 text-blue-50">
       <div class="container mx-auto px-6 md:px-8">
         <div class="flex flex-col md:flex-row items-center justify-between md:space-y-0 space-y-6">
           <div class="flex items-center space-x-4 md:space-x-6 my-4">
-            <a href="./tutorials.html" class="text-lGreen hover:text-lGreen transition duration-150 ease-in text-sm md:text-base px-3" id="tutorials-link">Tutorials</a>
-            <a href="./terms.html" class="text-lGreen hover:text-lGreen transition duration-150 ease-in text-sm md:text-base px-3" id="terms-link">Terms</a>
-            <a href="./privacy.html" class="text-lGreen hover:text-lGreen transition duration-150 ease-in text-sm md:text-base px-3" id="privacy-link">Privacy Policy</a>
+            <a href="${pathPrefix}tutorials.html" class="text-lGreen hover:text-lGreen transition duration-150 ease-in text-sm md:text-base px-3" id="tutorials-link">Tutorials</a>
+            <a href="${pathPrefix}terms.html" class="text-lGreen hover:text-lGreen transition duration-150 ease-in text-sm md:text-base px-3" id="terms-link">Terms</a>
+            <a href="${pathPrefix}privacy.html" class="text-lGreen hover:text-lGreen transition duration-150 ease-in text-sm md:text-base px-3" id="privacy-link">Privacy Policy</a>
           </div>
           <p class="text-gray-400 text-sm mt-6 md:mt-0 py-3">
             © ezInvoice. All Rights Reserved
@@ -35,14 +39,16 @@ function insertFooter() {
     // If footer-container exists but is empty, fill it
     const footerContainer = document.getElementById('footer-container');
     if (footerContainer.innerHTML.trim() === '') {
-      footerContainer.innerHTML = renderFooter();
+      const isRootPath = window.location.pathname === '/' || window.location.pathname.endsWith('index.html') || !window.location.pathname.includes('/');
+      footerContainer.innerHTML = renderFooter(isRootPath);
     }
     return;
   }
 
   // Create and insert the footer directly
+  const isRootPath = window.location.pathname === '/' || window.location.pathname.endsWith('index.html') || !window.location.pathname.includes('/');
   const footerElement = document.createElement('div');
-  footerElement.innerHTML = renderFooter();
+  footerElement.innerHTML = renderFooter(isRootPath);
   
   document.body.appendChild(footerElement.firstElementChild);
   
@@ -52,16 +58,16 @@ function insertFooter() {
     const termsLink = document.getElementById('terms-link');
     const privacyLink = document.getElementById('privacy-link');
     
-    if (tutorialsLink && APP_CONSTANTS.TUTORIALS_PAGE) {
-      tutorialsLink.href = APP_CONSTANTS.TUTORIALS_PAGE;
+    if (tutorialsLink) {
+      tutorialsLink.href = isRootPath ? './tutorials.html' : '../tutorials.html';
     }
     
-    if (termsLink && APP_CONSTANTS.TERMS_PAGE) {
-      termsLink.href = APP_CONSTANTS.TERMS_PAGE;
+    if (termsLink) {
+      termsLink.href = isRootPath ? './terms.html' : '../terms.html';
     }
     
-    if (privacyLink && APP_CONSTANTS.PRIVACY_PAGE) {
-      privacyLink.href = APP_CONSTANTS.PRIVACY_PAGE;
+    if (privacyLink) {
+      privacyLink.href = isRootPath ? './privacy.html' : '../privacy.html';
     }
   }
 }

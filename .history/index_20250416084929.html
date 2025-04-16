@@ -32,6 +32,8 @@
   <script src="./components/header.js"></script>
   <script src="./components/footer.js"></script>
   <script src="./components/component-loader.js"></script>
+  <!-- Then site.js which might use the components -->
+  <script src="./js/site.js" defer></script>
 </head>
 
 <body class="font-pub bg-[#FAFAFA]">
@@ -234,47 +236,13 @@
   <script>
     // Ensure components are loaded
     document.addEventListener('DOMContentLoaded', function() {
-      console.log('DOM content loaded in index.html');
       if (typeof window.loadComponents === 'function') {
-        console.log('Calling loadComponents from index.html');
         window.loadComponents();
-      } else {
-        console.error('loadComponents function not available');
       }
       
-      // Force manual header and footer rendering as a fallback
-      setTimeout(function() {
-        const headerContainer = document.getElementById('header-container');
-        const footerContainer = document.getElementById('footer-container');
-        
-        if (headerContainer && headerContainer.innerHTML.trim() === '' && typeof window.renderHeader === 'function') {
-          console.log('Manually rendering header');
-          headerContainer.innerHTML = window.renderHeader();
-          
-          if (typeof initMobileMenu === 'function') {
-            initMobileMenu();
-          }
-        }
-        
-        if (footerContainer && footerContainer.innerHTML.trim() === '' && typeof window.renderFooter === 'function') {
-          console.log('Manually rendering footer');
-          footerContainer.innerHTML = window.renderFooter();
-        }
-      }, 500);
-    });
-    
-    // Additional fallback for very slow connections
-    window.addEventListener('load', function() {
-      console.log('Window load event in index.html');
-      const headerContainer = document.getElementById('header-container');
-      
-      if (headerContainer && headerContainer.innerHTML.trim() === '' && typeof window.renderHeader === 'function') {
-        console.log('Rendering header after window load');
-        headerContainer.innerHTML = window.renderHeader();
-        
-        if (typeof initMobileMenu === 'function') {
-          initMobileMenu();
-        }
+      // Force reinitialization of mobile menu
+      if (typeof initMobileMenu === 'function') {
+        setTimeout(initMobileMenu, 500);
       }
     });
   </script>

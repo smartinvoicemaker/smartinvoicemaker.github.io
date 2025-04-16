@@ -27,8 +27,8 @@ function renderHeader() {
             </div>
           </div>
           
-          <!-- Mobile Menu Button - Only show the hamburger menu on mobile -->
-          <div class="md:hidden">
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden flex items-center">
             <button id="mobile-menu-button" class="text-dBlue focus:outline-none" aria-label="Toggle menu">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -43,23 +43,12 @@ function renderHeader() {
             <a href="./tutorials.html" class="text-dBlue hover:text-lGreen transition duration-150 ease-in py-2 border-b border-gray-100" id="tutorials-mobile-link">Tutorials</a>
             <a href="./terms.html" class="text-dBlue hover:text-lGreen transition duration-150 ease-in py-2 border-b border-gray-100" id="terms-mobile-link">Terms</a>
             <a href="./privacy.html" class="text-dBlue hover:text-lGreen transition duration-150 ease-in py-2 border-b border-gray-100" id="privacy-mobile-link">Privacy</a>
-            
-            <!-- App download buttons moved inside the mobile menu -->
-            <div class="flex flex-col space-y-3 pt-3">
-              <p class="text-gray-500 text-sm font-medium">DOWNLOAD OUR APP</p>
-              <a href="#" class="transition hover:bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 flex items-center" id="google-play-mobile">
-                <img src="./images/goolge-play.svg" alt="GooglePlay" class="h-8 mr-3">
-                <div class="text-left">
-                  <span class="block text-xs text-gray-500">GET IT ON</span>
-                  <span class="block text-sm font-medium text-dBlue">Google Play</span>
-                </div>
+            <div class="flex items-center pt-2 space-x-4">
+              <a href="#" class="transition hover:opacity-80 flex-1 text-center" id="google-play-mobile">
+                <img src="./images/goolge-play.svg" alt="GooglePlay" class="h-10 inline-block">
               </a>
-              <a href="#" class="transition hover:bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 flex items-center" id="appstore-mobile">
-                <img src="./images/apple-store.svg" alt="AppStore" class="h-8 mr-3">
-                <div class="text-left">
-                  <span class="block text-xs text-gray-500">DOWNLOAD ON</span>
-                  <span class="block text-sm font-medium text-dBlue">App Store</span>
-                </div>
+              <a href="#" class="transition hover:opacity-80 flex-1 text-center" id="appstore-mobile">
+                <img src="./images/apple-store.svg" alt="AppStore" class="h-10 inline-block">
               </a>
             </div>
           </div>
@@ -74,32 +63,6 @@ function renderHeader() {
 // Make the component available globally
 if (typeof window !== 'undefined') {
   window.renderHeader = renderHeader;
-}
-
-// Function to initialize mobile menu toggle functionality
-function initMobileMenu() {
-  const menuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
-  
-  if (menuButton && mobileMenu) {
-    menuButton.addEventListener('click', function(event) {
-      // Toggle the mobile menu
-      if (mobileMenu.classList.contains('hidden')) {
-        mobileMenu.classList.remove('hidden');
-      } else {
-        mobileMenu.classList.add('hidden');
-      }
-      // Prevent the event from propagating to document
-      event.stopPropagation();
-    });
-    
-    // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
-      if (menuButton && mobileMenu && !menuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
-        mobileMenu.classList.add('hidden');
-      }
-    });
-  }
 }
 
 // Create a function to insert the header
@@ -141,6 +104,30 @@ function insertHeader() {
     if (appstoreHeader) appstoreHeader.href = APP_CONSTANTS.IOS_APP || '#';
     if (googlePlayMobile) googlePlayMobile.href = APP_CONSTANTS.ANDROID_APP || '#';
     if (appstoreMobile) appstoreMobile.href = APP_CONSTANTS.IOS_APP || '#';
+  }
+}
+
+// Function to initialize mobile menu toggle functionality
+function initMobileMenu() {
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (menuButton && mobileMenu) {
+    menuButton.addEventListener('click', function() {
+      // Toggle the mobile menu
+      if (mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.remove('hidden');
+      } else {
+        mobileMenu.classList.add('hidden');
+      }
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!menuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+        mobileMenu.classList.add('hidden');
+      }
+    });
   }
 }
 

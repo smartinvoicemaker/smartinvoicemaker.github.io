@@ -2,40 +2,24 @@
  * Load and render components on the page
  */
 function loadComponents() {
-  console.log('Running loadComponents function');
-  
   // Find component containers
   const headerContainer = document.getElementById('header-container');
   const footerContainer = document.getElementById('footer-container');
   
-  console.log('Found header container:', headerContainer !== null);
-  console.log('Found footer container:', footerContainer !== null);
-  
   // Render components if containers exist and rendering functions are available
   if (headerContainer && window.renderHeader) {
-    console.log('Rendering header with renderHeader function');
     headerContainer.innerHTML = renderHeader();
+    console.log('Header rendered');
     
     // Initialize mobile menu after header is rendered
     if (typeof initMobileMenu === 'function') {
-      console.log('Initializing mobile menu');
       initMobileMenu();
     }
-  } else {
-    console.warn('Could not render header. Container or function missing:', {
-      containerExists: headerContainer !== null,
-      renderFunctionExists: typeof window.renderHeader === 'function'
-    });
   }
   
   if (footerContainer && window.renderFooter) {
-    console.log('Rendering footer with renderFooter function');
     footerContainer.innerHTML = renderFooter();
-  } else {
-    console.warn('Could not render footer. Container or function missing:', {
-      containerExists: footerContainer !== null,
-      renderFunctionExists: typeof window.renderFooter === 'function'
-    });
+    console.log('Footer rendered');
   }
   
   // Apply constants to links if they exist
@@ -84,48 +68,23 @@ if (typeof window !== 'undefined') {
   
   // Run as soon as possible
   if (document.readyState === 'loading') {
-    console.log('Document still loading, adding DOMContentLoaded listener');
-    document.addEventListener('DOMContentLoaded', function() {
-      console.log('DOMContentLoaded fired, calling loadComponents');
-      loadComponents();
-    });
+    document.addEventListener('DOMContentLoaded', loadComponents);
   } else {
-    console.log('Document already loaded, calling loadComponents immediately');
     loadComponents();
   }
   
   // Also run on load as a fallback
   window.addEventListener('load', function() {
-    console.log('Window load event fired');
     const headerContainer = document.getElementById('header-container');
     const footerContainer = document.getElementById('footer-container');
     
     // If containers exist but are empty, fill them
     if (headerContainer && headerContainer.innerHTML.trim() === '') {
-      console.log('Header container found empty on load, calling loadComponents');
       loadComponents();
     }
     
     if (footerContainer && footerContainer.innerHTML.trim() === '') {
-      console.log('Footer container found empty on load, calling loadComponents');
       loadComponents();
     }
   });
-  
-  // Add one more fallback to ensure components load even on slow connections
-  setTimeout(function() {
-    console.log('Timeout fallback check running');
-    const headerContainer = document.getElementById('header-container');
-    const footerContainer = document.getElementById('footer-container');
-    
-    if (headerContainer && headerContainer.innerHTML.trim() === '') {
-      console.log('Header container still empty after timeout, calling loadComponents');
-      loadComponents();
-    }
-    
-    if (footerContainer && footerContainer.innerHTML.trim() === '') {
-      console.log('Footer container still empty after timeout, calling loadComponents');
-      loadComponents();
-    }
-  }, 1000);
 }
