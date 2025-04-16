@@ -13,11 +13,15 @@ const APP_CONSTANTS = {
   INVOICE_APP_PAGE: 'best-invoice-app.html',
   INVOICE_RECEIPT_PAGE: 'invoice-recipt.html',
   TUTORIALS_PAGE: 'tutorials.html',
+  CONTACT_PAGE: 'contact.html',
   
   // Image paths
   LOGO: './images/logo.png',
   GOOGLE_PLAY_BADGE: './images/goolge-play.svg',
-  APPSTORE_BADGE: './images/apple-store.svg'
+  APPSTORE_BADGE: './images/apple-store.svg',
+  
+  // Contact information
+  SUPPORT_EMAIL: 'support@ez-invoice.com'
 };
 
 // Tutorial videos data

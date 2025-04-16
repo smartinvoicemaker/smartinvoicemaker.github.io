@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - ezInvoice</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;700&display=swap" rel="stylesheet" />
+    <!-- Include constants.js first -->
+    <script src="./js/constants.js"></script>
+    <!-- Include component scripts -->
+    <script src="./components/header.js"></script>
+    <script src="./components/footer.js"></script>
+    <script src="./components/component-loader.js"></script>
+</head>
+
+<body class="bg-gray-100">
+    <!-- Header container - will be populated by JavaScript -->
+    <div id="header-container"></div>
+
+    <div class="container mx-auto px-4 pt-28 py-12">
+        <!-- Title Section -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-dBlue mb-4">Contact Us</h1>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                Have questions about our invoice app? We're here to help! Fill out the form below 
+                and our team will get back to you as soon as possible.
+            </p>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-sm overflow-hidden">
+            <div class="md:flex">
+                <!-- Contact Info -->
+                <div class="bg-gradient-to-b from-blue-600 to-blue-800 text-white md:w-1/3 p-8">
+                    <h2 class="text-2xl font-semibold mb-6">Contact Information</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-envelope text-blue-300"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="font-medium">Email</p>
+                                <a href="mailto:support@ez-invoice.com" class="text-blue-200 hover:text-white transition-colors" id="support-email-link">
+                                    support@ez-invoice.com
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-clock text-blue-300"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="font-medium">Support Hours</p>
+                                <p class="text-blue-200">Monday - Friday</p>
+                                <p class="text-blue-200">9:00 AM - 5:00 PM EST</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-mobile-alt text-blue-300"></i>
+                            </div>
+                            <div class="ml-4">
+                                <p class="font-medium">Download Our App</p>
+                                <div class="flex mt-2 space-x-3">
+                                    <a href="#" id="google-play-contact" class="hover:opacity-80 transition-opacity">
+                                        <img src="./images/goolge-play.svg" alt="Google Play" class="h-8">
+                                    </a>
+                                    <a href="#" id="appstore-contact" class="hover:opacity-80 transition-opacity">
+                                        <img src="./images/apple-store.svg" alt="App Store" class="h-8">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="md:w-2/3 p-8">
+                    <h2 class="text-2xl font-semibold text-dBlue mb-6">Send us a message</h2>
+                    
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                                <input type="text" id="name" name="name" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                <input type="email" id="email" name="email" required
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                            <input type="text" id="subject" name="subject" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="5" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"></textarea>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <input type="checkbox" id="subscribe" name="subscribe"
+                                class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                            <label for="subscribe" class="ml-2 block text-sm text-gray-700">
+                                Subscribe to our newsletter for updates
+                            </label>
+                        </div>
+                        
+                        <div>
+                            <button type="submit" 
+                                class="w-full bg-gradient-to-r from-lGreen to-bCyan text-white py-2 px-4 rounded-md hover:opacity-90 transition-opacity focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                    
+                    <!-- Success message (hidden by default) -->
+                    <div id="success-message" class="hidden mt-6 p-4 bg-green-100 text-green-700 rounded-md">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-check-circle text-green-600"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="font-medium">Your message has been sent!</p>
+                                <p class="text-sm">We'll get back to you as soon as possible.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Error message (hidden by default) -->
+                    <div id="error-message" class="hidden mt-6 p-4 bg-red-100 text-red-700 rounded-md">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-exclamation-circle text-red-600"></i>
+                            </div>
+                            <div class="ml-3">
+                                <p class="font-medium">There was an error sending your message.</p>
+                                <p class="text-sm">Please try again later or contact us directly at <a href="mailto:support@ez-invoice.com" class="underline">support@ez-invoice.com</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- FAQ Section -->
+        <section class="my-16">
+            <h2 class="text-3xl font-semibold text-center text-dBlue mb-8">Frequently Asked Questions</h2>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white rounded-lg shadow-sm mb-4 overflow-hidden">
+                    <button class="flex justify-between items-center w-full p-5 text-left font-semibold" onclick="toggleFAQ('faq1')">
+                        How quickly can I expect a response to my inquiry?
+                        <svg class="w-5 h-5 transform transition-transform" id="faq1-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="hidden px-5 pb-5" id="faq1">
+                        <p class="text-gray-600">
+                            We strive to respond to all inquiries within 24-48 business hours. For urgent matters, please indicate so in the subject line of your message.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm mb-4 overflow-hidden">
+                    <button class="flex justify-between items-center w-full p-5 text-left font-semibold" onclick="toggleFAQ('faq2')">
+                        How can I report a bug or issue with the app?
+                        <svg class="w-5 h-5 transform transition-transform" id="faq2-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="hidden px-5 pb-5" id="faq2">
+                        <p class="text-gray-600">
+                            To report a bug, please use the contact form and select "Bug Report" as the subject. Include details such as your device model, operating system version, and steps to reproduce the issue. Screenshots are also helpful.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm mb-4 overflow-hidden">
+                    <button class="flex justify-between items-center w-full p-5 text-left font-semibold" onclick="toggleFAQ('faq3')">
+                        Can I request a specific feature for the app?
+                        <svg class="w-5 h-5 transform transition-transform" id="faq3-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="hidden px-5 pb-5" id="faq3">
+                        <p class="text-gray-600">
+                            Yes! We welcome feature requests from our users. Use the contact form and select "Feature Request" as the subject. Describe the feature you'd like to see and how it would benefit your invoicing workflow. We regularly review user suggestions for future updates.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                    <button class="flex justify-between items-center w-full p-5 text-left font-semibold" onclick="toggleFAQ('faq4')">
+                        How can I get help with using the app?
+                        <svg class="w-5 h-5 transform transition-transform" id="faq4-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div class="hidden px-5 pb-5" id="faq4">
+                        <p class="text-gray-600">
+                            Check out our <a href="./tutorials.html" class="text-blue-600 hover:underline">Tutorials</a> page for step-by-step guides and video tutorials. If you still need assistance, contact us through this form with specific questions, and our support team will help you.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer container - will be populated by JavaScript -->
+    <div id="footer-container"></div>
+
+    <script>
+        // Function to toggle FAQ visibility
+        function toggleFAQ(id) {
+            const content = document.getElementById(id);
+            const icon = document.getElementById(`${id}-icon`);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-90');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-90');
+            }
+        }
+        
+        // Form submission handler
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contact-form');
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
+            const supportEmailLink = document.getElementById('support-email-link');
+            
+            // Set support email from constants if available
+            if (window.APP_CONSTANTS && APP_CONSTANTS.SUPPORT_EMAIL) {
+                const email = APP_CONSTANTS.SUPPORT_EMAIL;
+                if (supportEmailLink) {
+                    supportEmailLink.href = `mailto:${email}`;
+                    supportEmailLink.textContent = email;
+                }
+                
+                // Update the error message email link
+                const errorEmailLink = document.querySelector('#error-message a');
+                if (errorEmailLink) {
+                    errorEmailLink.href = `mailto:${email}`;
+                    errorEmailLink.textContent = email;
+                }
+            }
+            
+            // Set app download links
+            if (window.APP_CONSTANTS) {
+                const googlePlayBtn = document.getElementById('google-play-contact');
+                const appStoreBtn = document.getElementById('appstore-contact');
+                
+                if (googlePlayBtn && APP_CONSTANTS.ANDROID_APP) {
+                    googlePlayBtn.href = APP_CONSTANTS.ANDROID_APP;
+                }
+                
+                if (appStoreBtn && APP_CONSTANTS.IOS_APP) {
+                    appStoreBtn.href = APP_CONSTANTS.IOS_APP;
+                }
+            }
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Hide previous messages
+                    successMessage.classList.add('hidden');
+                    errorMessage.classList.add('hidden');
+                    
+                    // Get form data
+                    const formData = new FormData(contactForm);
+                    const name = formData.get('name');
+                    const email = formData.get('email');
+                    const subject = formData.get('subject');
+                    const message = formData.get('message');
+                    const subscribe = formData.get('subscribe') === 'on';
+                    
+                    // In a real implementation, you would send this data to your server
+                    // For demonstration, we'll simulate a successful submission
+                    
+                    // Simulate API call with timeout
+                    setTimeout(() => {
+                        // Show success message
+                        successMessage.classList.remove('hidden');
+                        
+                        // Reset form
+                        contactForm.reset();
+                        
+                        // Log the data (for demonstration)
+                        console.log({
+                            name,
+                            email,
+                            subject,
+                            message,
+                            subscribe,
+                            timestamp: new Date().toISOString(),
+                            recipient: APP_CONSTANTS?.SUPPORT_EMAIL || 'support@ez-invoice.com'
+                        });
+                        
+                        // Scroll to success message
+                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }, 1000);
+                    
+                    // In a real implementation you would use fetch or XMLHttpRequest:
+                    /*
+                    fetch('your-endpoint', {
+                        method: 'POST',
+                        body: formData,
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        successMessage.classList.remove('hidden');
+                        contactForm.reset();
+                    })
+                    .catch(error => {
+                        errorMessage.classList.remove('hidden');
+                        console.error('Error:', error);
+                    });
+                    */
+                });
+            }
+            
+            // Ensure components are loaded
+            if (typeof window.loadComponents === 'function') {
+                window.loadComponents();
+            }
+        });
+    </script>
+</body>
+
+</html>

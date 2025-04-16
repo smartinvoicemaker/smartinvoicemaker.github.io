@@ -71,6 +71,7 @@ function loadComponents() {
     updateElementHref('tutorials-link', APP_CONSTANTS.TUTORIALS_PAGE || './tutorials.html');
     updateElementHref('terms-link', APP_CONSTANTS.TERMS_PAGE || './terms.html');
     updateElementHref('privacy-link', APP_CONSTANTS.PRIVACY_PAGE || './privacy.html');
+    updateElementHref('contact-link', APP_CONSTANTS.CONTACT_PAGE || './contact.html');
     
     // Update footer app download links
     updateElementHref('google-play-footer', APP_CONSTANTS.ANDROID_APP);

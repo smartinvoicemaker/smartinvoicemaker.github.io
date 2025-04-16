@@ -58,7 +58,7 @@ function renderFooter() {
             <ul class="space-y-2">
               <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">FAQ</a></li>
               <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Support Center</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Contact Us</a></li>
+              <li><a href="./contact.html" class="text-gray-400 hover:text-white transition-colors duration-300" id="contact-link">Contact Us</a></li>
             </ul>
           </div>
 
@@ -127,6 +127,7 @@ function insertFooter() {
     updateLink('tutorials-link', APP_CONSTANTS.TUTORIALS_PAGE, './tutorials.html');
     updateLink('terms-link', APP_CONSTANTS.TERMS_PAGE, './terms.html');
     updateLink('privacy-link', APP_CONSTANTS.PRIVACY_PAGE, './privacy.html');
+    updateLink('contact-link', APP_CONSTANTS.CONTACT_PAGE, './contact.html');
     
     // Update app download links
     updateLink('google-play-footer', APP_CONSTANTS.ANDROID_APP);
