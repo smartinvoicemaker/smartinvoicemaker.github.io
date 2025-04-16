@@ -17,8 +17,6 @@ function renderHeader(isRootPath = false) {
           </a>
           <div class="flex items-center">
             <a href="${pathPrefix}pages/tutorials.html" class="mr-6 text-dBlue hover:text-lGreen transition duration-150 ease-in hidden md:block" id="tutorials-header-link">Tutorials</a>
-            <a href="${pathPrefix}pages/tutorials.html" class="mr-6 text-dBlue hover:text-lGreen transition duration-150 ease-in hidden md:block" id="tutorials-header-link">Tutorials</a>
-            <a href="${pathPrefix}pages/tutorials.html" class="mr-6 text-dBlue hover:text-lGreen transition duration-150 ease-in hidden md:block" id="tutorials-header-link">Tutorials</a>
             <div class="flex items-center space-x-4">
               <a href="#" class="transition hover:opacity-80" id="google-play-header">
                 <img src="${pathPrefix}images/goolge-play.svg" alt="GooglePlay" id="google-play-img">

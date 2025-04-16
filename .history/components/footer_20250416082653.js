@@ -3,7 +3,7 @@
  * @param {boolean} isRootPath - Whether the current page is at the root path or in a subdirectory
  * @returns {string} HTML content for the footer
  */
-function renderFooter() {
+function renderFooter(isRootPath = false) {
   // Determine correct path prefix for assets and links
   const pathPrefix = './';
   

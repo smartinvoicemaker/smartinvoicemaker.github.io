@@ -3,7 +3,7 @@
  * @param {boolean} isRootPath - Whether the current page is at the root path or in a subdirectory
  * @returns {string} HTML content for the footer
  */
-function renderFooter() {
+function renderFooter(isRootPath = false) {
   // Determine correct path prefix for assets and links
   const pathPrefix = './';
   
@@ -13,9 +13,9 @@ function renderFooter() {
       <div class="container mx-auto px-6 md:px-8">
         <div class="flex flex-col md:flex-row items-center justify-between md:space-y-0 space-y-6">
           <div class="flex items-center space-x-4 md:space-x-6 my-4">
-            <a href="${pathPrefix}tutorials.html" class="text-lGreen hover:text-lGreen transition duration-150 ease-in text-sm md:text-base px-3" id="tutorials-link">Tutorials</a>
-            <a href="${pathPrefix}terms.html" class="text-lGreen hover:text-lGreen transition duration-150 ease-in text-sm md:text-base px-3" id="terms-link">Terms</a>
-            <a href="${pathPrefix}privacy.html" class="text-lGreen hover:text-lGreen transition duration-150 ease-in text-sm md:text-base px-3" id="privacy-link">Privacy Policy</a>
+            <a href="${pathPrefix}/tutorials.html" class="text-lGreen hover:text-lGreen transition duration-150 ease-in text-sm md:text-base px-3" id="tutorials-link">Tutorials</a>
+            <a href="${pathPrefix}/terms.html" class="text-lGreen hover:text-lGreen transition duration-150 ease-in text-sm md:text-base px-3" id="terms-link">Terms</a>
+            <a href="${pathPrefix}/privacy.html" class="text-lGreen hover:text-lGreen transition duration-150 ease-in text-sm md:text-base px-3" id="privacy-link">Privacy Policy</a>
           </div>
           <p class="text-gray-400 text-sm mt-6 md:mt-0 py-3">
             © ezInvoice. All Rights Reserved
