@@ -72,10 +72,17 @@ function loadComponents() {
     updateElementHref('terms-link', APP_CONSTANTS.TERMS_PAGE || './terms.html');
     updateElementHref('privacy-link', APP_CONSTANTS.PRIVACY_PAGE || './privacy.html');
     
+    // Update footer app download links
+    updateElementHref('google-play-footer', APP_CONSTANTS.ANDROID_APP);
+    updateElementHref('appstore-footer', APP_CONSTANTS.IOS_APP);
+    
     // Update CTA links
     updateElementHref('google-play-cta', APP_CONSTANTS.ANDROID_APP);
     updateElementHref('appstore-cta', APP_CONSTANTS.IOS_APP);
   }
+  
+  // Initialize any footer-specific JavaScript functionality if needed
+  // N/A for current implementation
 }
 
 // Make the function globally available
