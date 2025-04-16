@@ -4,31 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
-    integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./build/output.css">
-  <title>Invoice Maker: Create Professional Invoices Easily-ezInvoice</title>
-  <meta name="description"
-    content="Make professional invoices effortlessly with our Invoice Maker app. Simplify your billing process and present your business in the best light. Get started today!">
-  
-  <!-- Load constants and components first -->
+  <title>Terms of Use - ezInvoice</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Include constants.js first -->
   <script src="./js/constants.js"></script>
-  <script>
-    // Define necessary constants if not already defined
-    if (!window.APP_CONSTANTS) {
-      window.APP_CONSTANTS = {
-        WEBSITE_URL: "./",
-        ANDROID_APP: "https://play.google.com/store/apps/details?id=invoice.invoicemaker.simple",
-        IOS_APP: "https://apps.apple.com/us/app/ezinvoice-invoice-maker/id1586215431",
-        TUTORIALS_PAGE: "./tutorials.html",
-        TERMS_PAGE: "./terms.html",
-        PRIVACY_PAGE: "./privacy.html"
-      };
-    }
-  </script>
+  <!-- Include component scripts -->
   <script src="./components/header.js"></script>
   <script src="./components/footer.js"></script>
   <script src="./components/component-loader.js"></script>
@@ -231,49 +211,82 @@
   <!-- Footer container - will be populated by JavaScript -->
   <div id="footer-container"></div>
   
+  <!-- Add direct header rendering to ensure it works on index page -->
   <script>
-    // Ensure components are loaded
     document.addEventListener('DOMContentLoaded', function() {
-      console.log('DOM content loaded in index.html');
-      if (typeof window.loadComponents === 'function') {
-        console.log('Calling loadComponents from index.html');
-        window.loadComponents();
-      } else {
-        console.error('loadComponents function not available');
+      // Directly render header and footer without waiting for component-loader
+      const headerContainer = document.getElementById('header-container');
+      const footerContainer = document.getElementById('footer-container');
+      
+      if (headerContainer && typeof renderHeader === 'function' && headerContainer.innerHTML.trim() === '') {
+        headerContainer.innerHTML = renderHeader();
+        console.log('Direct header rendering applied');
+        
+        // Initialize mobile menu
+        if (typeof initMobileMenu === 'function') {
+          initMobileMenu();
+        }
+        
+        // Update all navigation links
+        if (window.APP_CONSTANTS) {
+          // Desktop links
+          const updateLink = (id, url) => {
+            const element = document.getElementById(id);
+            if (element) element.href = url;
+          };
+          
+          updateLink('main-logo-link', APP_CONSTANTS.WEBSITE_URL || './');
+          updateLink('google-play-header', APP_CONSTANTS.ANDROID_APP);
+          updateLink('appstore-header', APP_CONSTANTS.IOS_APP);
+          updateLink('tutorials-header-link', APP_CONSTANTS.TUTORIALS_PAGE || './tutorials.html');
+          updateLink('terms-header-link', APP_CONSTANTS.TERMS_PAGE || './terms.html');
+          updateLink('privacy-header-link', APP_CONSTANTS.PRIVACY_PAGE || './privacy.html');
+          
+          // Mobile links
+          updateLink('tutorials-mobile-link', APP_CONSTANTS.TUTORIALS_PAGE || './tutorials.html');
+          updateLink('terms-mobile-link', APP_CONSTANTS.TERMS_PAGE || './terms.html');
+          updateLink('privacy-mobile-link', APP_CONSTANTS.PRIVACY_PAGE || './privacy.html');
+          updateLink('google-play-mobile', APP_CONSTANTS.ANDROID_APP);
+          updateLink('appstore-mobile', APP_CONSTANTS.IOS_APP);
+        }
       }
       
-      // Force manual header and footer rendering as a fallback
-      setTimeout(function() {
-        const headerContainer = document.getElementById('header-container');
-        const footerContainer = document.getElementById('footer-container');
+      if (footerContainer && typeof renderFooter === 'function' && footerContainer.innerHTML.trim() === '') {
+        footerContainer.innerHTML = renderFooter();
+        console.log('Direct footer rendering applied');
         
-        if (headerContainer && headerContainer.innerHTML.trim() === '' && typeof window.renderHeader === 'function') {
-          console.log('Manually rendering header');
-          headerContainer.innerHTML = window.renderHeader();
+        // Update footer links
+        if (window.APP_CONSTANTS) {
+          const updateLink = (id, url) => {
+            const element = document.getElementById(id);
+            if (element) element.href = url;
+          };
+          
+          updateLink('tutorials-link', APP_CONSTANTS.TUTORIALS_PAGE || './tutorials.html');
+          updateLink('terms-link', APP_CONSTANTS.TERMS_PAGE || './terms.html');
+          updateLink('privacy-link', APP_CONSTANTS.PRIVACY_PAGE || './privacy.html');
+        }
+      }
+      
+      // Also try to use the component loader if available
+      if (typeof window.loadComponents === 'function') {
+        window.loadComponents();
+      }
+    });
+    
+    // Extra fallback to ensure header is rendered
+    window.addEventListener('load', function() {
+      const headerContainer = document.getElementById('header-container');
+      
+      if (headerContainer && headerContainer.innerHTML.trim() === '') {
+        console.log('Header not found on load, manually inserting');
+        
+        if (typeof renderHeader === 'function') {
+          headerContainer.innerHTML = renderHeader();
           
           if (typeof initMobileMenu === 'function') {
             initMobileMenu();
           }
-        }
-        
-        if (footerContainer && footerContainer.innerHTML.trim() === '' && typeof window.renderFooter === 'function') {
-          console.log('Manually rendering footer');
-          footerContainer.innerHTML = window.renderFooter();
-        }
-      }, 500);
-    });
-    
-    // Additional fallback for very slow connections
-    window.addEventListener('load', function() {
-      console.log('Window load event in index.html');
-      const headerContainer = document.getElementById('header-container');
-      
-      if (headerContainer && headerContainer.innerHTML.trim() === '' && typeof window.renderHeader === 'function') {
-        console.log('Rendering header after window load');
-        headerContainer.innerHTML = window.renderHeader();
-        
-        if (typeof initMobileMenu === 'function') {
-          initMobileMenu();
         }
       }
     });
