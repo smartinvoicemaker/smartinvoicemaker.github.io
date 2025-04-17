@@ -3,26 +3,29 @@
  * @returns {string} HTML content for the header
  */
 function renderHeader() {
-  // Create the header HTML with direct paths since all pages are at the same level
+  // Detect if we are in a blog subdirectory
+  const isBlog = typeof window !== 'undefined' && window.location.pathname.includes('/blog/');
+  const imgPrefix = isBlog ? '../images/' : './images/';
+
   const headerHTML = `
     <header class="bg-white fixed top-0 w-full z-50 shadow-sm">
       <nav class="container mx-auto py-3">
         <div class="flex items-center justify-between px-4 md:px-6">
-          <a href="./" class="flex items-center" id="main-logo-link">
-            <img src="./images/logo.png" alt="ezInvoice" class="h-10" width="50" height="50" id="header-logo" />
+          <a href="${isBlog ? '../' : './'}" class="flex items-center" id="main-logo-link">
+            <img src="${imgPrefix}logo.png" alt="ezInvoice" class="h-10" width="50" height="50" id="header-logo" />
           </a>
           
           <!-- Desktop Navigation -->
           <div class="hidden md:flex items-center ml-auto">
-            <a href="./tutorials.html" class="mr-6 text-dBlue hover:text-lGreen transition duration-150 ease-in" id="tutorials-header-link">Tutorials</a>
-            <a href="./terms.html" class="mr-6 text-dBlue hover:text-lGreen transition duration-150 ease-in" id="terms-header-link">Terms</a>
-            <a href="./privacy.html" class="mr-6 text-dBlue hover:text-lGreen transition duration-150 ease-in" id="privacy-header-link">Privacy</a>
+            <a href="${isBlog ? '../tutorials.html' : './tutorials.html'}" class="mr-6 text-dBlue hover:text-lGreen transition duration-150 ease-in" id="tutorials-header-link">Tutorials</a>
+            <a href="${isBlog ? '../terms.html' : './terms.html'}" class="mr-6 text-dBlue hover:text-lGreen transition duration-150 ease-in" id="terms-header-link">Terms</a>
+            <a href="${isBlog ? '../privacy.html' : './privacy.html'}" class="mr-6 text-dBlue hover:text-lGreen transition duration-150 ease-in" id="privacy-header-link">Privacy</a>
             <div class="flex items-center space-x-4">
               <a href="#" class="transition hover:opacity-80" id="google-play-header">
-                <img src="./images/goolge-play.svg" alt="GooglePlay" id="google-play-img">
+                <img src="${imgPrefix}goolge-play.svg" alt="GooglePlay" id="google-play-img">
               </a>
               <a href="#" class="transition hover:opacity-80" id="appstore-header">
-                <img src="./images/apple-store.svg" alt="AppStore" id="appstore-img">
+                <img src="${imgPrefix}apple-store.svg" alt="AppStore" id="appstore-img">
               </a>
             </div>
           </div>
@@ -30,10 +33,10 @@ function renderHeader() {
           <!-- App download links for mobile (always visible) -->
           <div class="flex md:hidden items-center space-x-2 justify-end w-full">
             <a href="#" class="transition hover:opacity-80" id="google-play-mobile">
-              <img src="./images/goolge-play.svg" alt="GooglePlay" class="h-8">
+              <img src="${imgPrefix}goolge-play.svg" alt="GooglePlay" class="h-8">
             </a>
             <a href="#" class="transition hover:opacity-80" id="appstore-mobile">
-              <img src="./images/apple-store.svg" alt="AppStore" class="h-8">
+              <img src="${imgPrefix}apple-store.svg" alt="AppStore" class="h-8">
             </a>
           </div>
           
@@ -50,9 +53,9 @@ function renderHeader() {
         <!-- Mobile Menu (hidden by default) -->
         <div id="mobile-menu" class="hidden md:hidden py-4 px-4 bg-white border-t border-gray-200">
           <div class="flex flex-col space-y-3">
-            <a href="./tutorials.html" class="text-dBlue hover:text-lGreen transition duration-150 ease-in py-2 border-b border-gray-100 text-right" id="tutorials-mobile-link">Tutorials</a>
-            <a href="./terms.html" class="text-dBlue hover:text-lGreen transition duration-150 ease-in py-2 border-b border-gray-100 text-right" id="terms-mobile-link">Terms</a>
-            <a href="./privacy.html" class="text-dBlue hover:text-lGreen transition duration-150 ease-in py-2 border-b border-gray-100 text-right" id="privacy-mobile-link">Privacy</a>
+            <a href="${isBlog ? '../tutorials.html' : './tutorials.html'}" class="text-dBlue hover:text-lGreen transition duration-150 ease-in py-2 border-b border-gray-100 text-right" id="tutorials-mobile-link">Tutorials</a>
+            <a href="${isBlog ? '../terms.html' : './terms.html'}" class="text-dBlue hover:text-lGreen transition duration-150 ease-in py-2 border-b border-gray-100 text-right" id="terms-mobile-link">Terms</a>
+            <a href="${isBlog ? '../privacy.html' : './privacy.html'}" class="text-dBlue hover:text-lGreen transition duration-150 ease-in py-2 border-b border-gray-100 text-right" id="privacy-mobile-link">Privacy</a>
           </div>
         </div>
       </nav>

@@ -3,7 +3,10 @@
  * @returns {string} HTML content for the footer
  */
 function renderFooter() {
-  // Create the footer HTML with direct paths since all pages are at the same level
+  // Detect if we are in a blog subdirectory
+  const isBlog = typeof window !== 'undefined' && window.location.pathname.includes('/blog/');
+  const imgPrefix = isBlog ? '../images/' : './images/';
+
   const footerHTML = `
     <footer class="bg-gradient-to-b from-gray-800 to-gray-900 text-white pt-12 pb-6">
       <div class="container mx-auto px-6 md:px-8">
@@ -12,7 +15,7 @@ function renderFooter() {
           <!-- Company Info -->
           <div>
             <div class="mb-4">
-              <img src="./images/logo.png" alt="ezInvoice" class="h-10" />
+              <img src="${imgPrefix}logo.png" alt="ezInvoice" class="h-10" />
             </div>
             <p class="text-gray-400 text-sm mb-4">
               Professional invoicing made simple. Create, customize, and send invoices in seconds with our easy-to-use mobile app.
@@ -45,10 +48,10 @@ function renderFooter() {
           <div>
             <h3 class="text-lg font-semibold mb-4 text-white">Quick Links</h3>
             <ul class="space-y-2">
-              <li><a href="./tutorials.html" class="text-gray-400 hover:text-white transition-colors duration-300" id="tutorials-link">Tutorials</a></li>
-              <li><a href="./terms.html" class="text-gray-400 hover:text-white transition-colors duration-300" id="terms-link">Terms of Use</a></li>
-              <li><a href="./privacy.html" class="text-gray-400 hover:text-white transition-colors duration-300" id="privacy-link">Privacy Policy</a></li>
-              <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Blog</a></li>
+              <li><a href="${isBlog ? '../tutorials.html' : './tutorials.html'}" class="text-gray-400 hover:text-white transition-colors duration-300" id="tutorials-link">Tutorials</a></li>
+              <li><a href="${isBlog ? '../terms.html' : './terms.html'}" class="text-gray-400 hover:text-white transition-colors duration-300" id="terms-link">Terms of Use</a></li>
+              <li><a href="${isBlog ? '../privacy.html' : './privacy.html'}" class="text-gray-400 hover:text-white transition-colors duration-300" id="privacy-link">Privacy Policy</a></li>
+              <li><a href="${isBlog ? '../blog/' : './blog/'}" class="text-gray-400 hover:text-white transition-colors duration-300">Blog</a></li>
             </ul>
           </div>
 
@@ -58,7 +61,7 @@ function renderFooter() {
             <ul class="space-y-2">
               <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">FAQ</a></li>
               <li><a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">Support Center</a></li>
-              <li><a href="./contact.html" class="text-gray-400 hover:text-white transition-colors duration-300" id="contact-link">Contact Us</a></li>
+              <li><a href="${isBlog ? '../contact.html' : './contact.html'}" class="text-gray-400 hover:text-white transition-colors duration-300" id="contact-link">Contact Us</a></li>
             </ul>
           </div>
 
@@ -67,10 +70,10 @@ function renderFooter() {
             <h3 class="text-lg font-semibold mb-4 text-white">Download Our App</h3>
             <div class="flex flex-col space-y-3">
               <a href="#" id="google-play-footer" class="transition-transform transform hover:scale-105">
-                <img src="./images/goolge-play.svg" alt="Google Play" class="h-10">
+                <img src="${imgPrefix}goolge-play.svg" alt="Google Play" class="h-10">
               </a>
               <a href="#" id="appstore-footer" class="transition-transform transform hover:scale-105">
-                <img src="./images/apple-store.svg" alt="App Store" class="h-10">
+                <img src="${imgPrefix}apple-store.svg" alt="App Store" class="h-10">
               </a>
             </div>
           </div>
@@ -124,10 +127,10 @@ function insertFooter() {
     };
     
     // Update navigation links
-    updateLink('tutorials-link', APP_CONSTANTS.TUTORIALS_PAGE, './tutorials.html');
-    updateLink('terms-link', APP_CONSTANTS.TERMS_PAGE, './terms.html');
-    updateLink('privacy-link', APP_CONSTANTS.PRIVACY_PAGE, './privacy.html');
-    updateLink('contact-link', APP_CONSTANTS.CONTACT_PAGE, './contact.html');
+    updateLink('tutorials-link', APP_CONSTANTS.TUTORIALS_PAGE, isBlog ? '../tutorials.html' : './tutorials.html');
+    updateLink('terms-link', APP_CONSTANTS.TERMS_PAGE, isBlog ? '../terms.html' : './terms.html');
+    updateLink('privacy-link', APP_CONSTANTS.PRIVACY_PAGE, isBlog ? '../privacy.html' : './privacy.html');
+    updateLink('contact-link', APP_CONSTANTS.CONTACT_PAGE, isBlog ? '../contact.html' : './contact.html');
     
     // Update app download links
     updateLink('google-play-footer', APP_CONSTANTS.ANDROID_APP);

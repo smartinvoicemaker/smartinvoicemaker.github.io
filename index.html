@@ -215,7 +215,34 @@
     </div>
   </section>
 
-
+  <!-- Blog Section (NEW) -->
+  <section class="py-16 bg-gradient-to-b from-[#F3F4F6] to-[#E5E7EB]">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-dBlue mb-4">
+          Latest from Our Blog
+        </h2>
+        <p class="text-lg text-[#9698a6] mb-6">
+          Insights and tips to help you master invoicing and small business finance.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+          <a href="./blog/invoice-vs-receipt.html" class="block transition-transform hover:scale-[1.02]">
+            <img src="./images/invoice-vs-receipt-cover.jpg" alt="Invoice vs Receipt" class="w-full h-48 object-cover rounded-t-xl">
+            <div class="p-6">
+              <h3 class="font-semibold text-xl mb-2 text-dBlue">Invoice vs Receipt: What's the Difference?</h3>
+              <p class="text-[#9698a6] text-base mb-4">
+                Understand the key differences between invoices and receipts, and why both are essential for your business.
+              </p>
+              <span class="text-blue-600 font-medium">Read more &rarr;</span>
+            </div>
+          </a>
+        </div>
+        <!-- You can add more blog cards here in the future -->
+      </div>
+    </div>
+  </section>
 
   <!-- Footer container - will be populated by JavaScript -->
   <div id="footer-container"></div>
@@ -250,6 +277,7 @@
           updateLink('tutorials-header-link', APP_CONSTANTS.TUTORIALS_PAGE || './tutorials.html');
           updateLink('terms-header-link', APP_CONSTANTS.TERMS_PAGE || './terms.html');
           updateLink('privacy-header-link', APP_CONSTANTS.PRIVACY_PAGE || './privacy.html');
+          updateLink('blog-header-link', APP_CONSTANTS.BLOG_PAGE || './blog/');
 
           // Mobile links
           updateLink('tutorials-mobile-link', APP_CONSTANTS.TUTORIALS_PAGE || './tutorials.html');
@@ -257,6 +285,7 @@
           updateLink('privacy-mobile-link', APP_CONSTANTS.PRIVACY_PAGE || './privacy.html');
           updateLink('google-play-mobile', APP_CONSTANTS.ANDROID_APP);
           updateLink('appstore-mobile', APP_CONSTANTS.IOS_APP);
+          updateLink('blog-mobile-link', APP_CONSTANTS.BLOG_PAGE || './blog/');
         }
       }
 
@@ -274,6 +303,7 @@
           updateLink('tutorials-link', APP_CONSTANTS.TUTORIALS_PAGE || './tutorials.html');
           updateLink('terms-link', APP_CONSTANTS.TERMS_PAGE || './terms.html');
           updateLink('privacy-link', APP_CONSTANTS.PRIVACY_PAGE || './privacy.html');
+          updateLink('blog-link', APP_CONSTANTS.BLOG_PAGE || './blog/');
         }
       }
 
