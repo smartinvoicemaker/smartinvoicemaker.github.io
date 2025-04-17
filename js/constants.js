@@ -33,7 +33,7 @@ const TUTORIAL_VIDEOS = [
     title: 'Creating Your First Invoice',
     description: 'Learn how to create your first invoice quickly and easily with ezInvoice in just a few simple steps.',
     youtubeId: 'D2YNQDOZ1-M',
-    duration: '3:45',
+    duration: '2:45',
     level: 'Beginner'
   },
   
@@ -55,7 +55,7 @@ const TUTORIAL_VIDEOS = [
     title: 'Customizing Invoice Templates',
     description: 'Learn how to customize invoice templates with your brand colors, logo, and personalized text to make your invoices stand out.',
     youtubeId: '6tfEowsr6wc',
-    duration: '7:14',
+    duration: '1:14',
     level: 'Advanced'
   },
   {
@@ -64,7 +64,7 @@ const TUTORIAL_VIDEOS = [
     title: 'Generating Reports and Analytics',
     description: 'Discover how to generate financial reports, analyze your sales data, and gain insights into your business performance.',
     youtubeId: '0w2aU7Omw5Y',
-    duration: '8:05',
+    duration: '1:05',
     level: 'Advanced'
   },
 ];
