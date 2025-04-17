@@ -13,7 +13,7 @@ function renderHeader() {
           </a>
           
           <!-- Desktop Navigation -->
-          <div class="hidden md:flex items-center">
+          <div class="hidden md:flex items-center ml-auto">
             <a href="./tutorials.html" class="mr-6 text-dBlue hover:text-lGreen transition duration-150 ease-in" id="tutorials-header-link">Tutorials</a>
             <a href="./terms.html" class="mr-6 text-dBlue hover:text-lGreen transition duration-150 ease-in" id="terms-header-link">Terms</a>
             <a href="./privacy.html" class="mr-6 text-dBlue hover:text-lGreen transition duration-150 ease-in" id="privacy-header-link">Privacy</a>
@@ -28,11 +28,11 @@ function renderHeader() {
           </div>
           
           <!-- App download links for mobile (always visible) -->
-          <div class="flex md:hidden items-center space-x-2">
-            <a href="#" class="transition hover:opacity-80" id="google-play-header-mobile">
+          <div class="flex md:hidden items-center space-x-2 justify-end w-full">
+            <a href="#" class="transition hover:opacity-80" id="google-play-mobile">
               <img src="./images/goolge-play.svg" alt="GooglePlay" class="h-8">
             </a>
-            <a href="#" class="transition hover:opacity-80" id="appstore-header-mobile">
+            <a href="#" class="transition hover:opacity-80" id="appstore-mobile">
               <img src="./images/apple-store.svg" alt="AppStore" class="h-8">
             </a>
           </div>
@@ -50,9 +50,9 @@ function renderHeader() {
         <!-- Mobile Menu (hidden by default) -->
         <div id="mobile-menu" class="hidden md:hidden py-4 px-4 bg-white border-t border-gray-200">
           <div class="flex flex-col space-y-3">
-            <a href="./tutorials.html" class="text-dBlue hover:text-lGreen transition duration-150 ease-in py-2 border-b border-gray-100" id="tutorials-mobile-link">Tutorials</a>
-            <a href="./terms.html" class="text-dBlue hover:text-lGreen transition duration-150 ease-in py-2 border-b border-gray-100" id="terms-mobile-link">Terms</a>
-            <a href="./privacy.html" class="text-dBlue hover:text-lGreen transition duration-150 ease-in py-2 border-b border-gray-100" id="privacy-mobile-link">Privacy</a>
+            <a href="./tutorials.html" class="text-dBlue hover:text-lGreen transition duration-150 ease-in py-2 border-b border-gray-100 text-right" id="tutorials-mobile-link">Tutorials</a>
+            <a href="./terms.html" class="text-dBlue hover:text-lGreen transition duration-150 ease-in py-2 border-b border-gray-100 text-right" id="terms-mobile-link">Terms</a>
+            <a href="./privacy.html" class="text-dBlue hover:text-lGreen transition duration-150 ease-in py-2 border-b border-gray-100 text-right" id="privacy-mobile-link">Privacy</a>
           </div>
         </div>
       </nav>
