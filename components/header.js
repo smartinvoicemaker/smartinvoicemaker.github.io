@@ -27,8 +27,18 @@ function renderHeader() {
             </div>
           </div>
           
-          <!-- Mobile Menu Button - Only show the hamburger menu on mobile -->
-          <div class="md:hidden">
+          <!-- App download links for mobile (always visible) -->
+          <div class="flex md:hidden items-center space-x-2">
+            <a href="#" class="transition hover:opacity-80" id="google-play-header-mobile">
+              <img src="./images/goolge-play.svg" alt="GooglePlay" class="h-8">
+            </a>
+            <a href="#" class="transition hover:opacity-80" id="appstore-header-mobile">
+              <img src="./images/apple-store.svg" alt="AppStore" class="h-8">
+            </a>
+          </div>
+          
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden ml-2">
             <button id="mobile-menu-button" class="text-dBlue focus:outline-none" aria-label="Toggle menu">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -43,25 +53,6 @@ function renderHeader() {
             <a href="./tutorials.html" class="text-dBlue hover:text-lGreen transition duration-150 ease-in py-2 border-b border-gray-100" id="tutorials-mobile-link">Tutorials</a>
             <a href="./terms.html" class="text-dBlue hover:text-lGreen transition duration-150 ease-in py-2 border-b border-gray-100" id="terms-mobile-link">Terms</a>
             <a href="./privacy.html" class="text-dBlue hover:text-lGreen transition duration-150 ease-in py-2 border-b border-gray-100" id="privacy-mobile-link">Privacy</a>
-            
-            <!-- App download buttons moved inside the mobile menu -->
-            <div class="flex flex-col space-y-3 pt-3">
-              <p class="text-gray-500 text-sm font-medium">DOWNLOAD OUR APP</p>
-              <a href="#" class="transition hover:bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 flex items-center" id="google-play-mobile">
-                <img src="./images/goolge-play.svg" alt="GooglePlay" class="h-8 mr-3">
-                <div class="text-left">
-                  <span class="block text-xs text-gray-500">GET IT ON</span>
-                  <span class="block text-sm font-medium text-dBlue">Google Play</span>
-                </div>
-              </a>
-              <a href="#" class="transition hover:bg-gray-50 border border-gray-200 rounded-lg py-3 px-4 flex items-center" id="appstore-mobile">
-                <img src="./images/apple-store.svg" alt="AppStore" class="h-8 mr-3">
-                <div class="text-left">
-                  <span class="block text-xs text-gray-500">DOWNLOAD ON</span>
-                  <span class="block text-sm font-medium text-dBlue">App Store</span>
-                </div>
-              </a>
-            </div>
           </div>
         </div>
       </nav>
